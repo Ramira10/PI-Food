@@ -38,7 +38,8 @@ router.get('/', async (req, res, next) => {
                 })
                 return res.status(200).send(recipes);
             }
-            return res.status(400).send('Recipe not found.')
+            console.log('Recipe not found.');
+            return res.status(400).send('Recipe not found.');
         } else {
             // Si no tengo nombre, devuelvo todas las recetas.
             let recipes = AllRecipes.map(r => {

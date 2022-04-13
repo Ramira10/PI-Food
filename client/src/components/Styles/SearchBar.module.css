@@ -1,0 +1,45 @@
+.general {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.title {
+    margin-bottom: 0.2%;
+    margin-left: 5%;
+    color: white;
+}
+
+.ib {
+    margin-left: 10%;
+}
+
+.input {
+    width: 1000px;
+    height: 50px;
+    font-size: 200%;
+    color: grey;
+    border-radius: 20px;
+    text-indent: 5px;
+}
+
+.input::placeholder {
+    text-align: center;
+    color: grey;
+    font-size: x-large;
+}
+
+.btn {
+    margin-left: 50px;
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+
+.btn:hover {
+    background-color: #767676c8;
+    color: white;
+}
