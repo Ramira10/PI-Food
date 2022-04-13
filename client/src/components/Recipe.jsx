@@ -10,16 +10,16 @@ export default function Recipe(props) {
         <div className={style.general}>
 
             <div>
-                <img src={image} alt="Not Found."></img>
+                <img className={style.img} src={image} alt="Not Found."></img>
             </div>
-            <div>
+            <div className={style.name}>
                 <h2>{name}</h2>
             </div>
             <div>
                 {
                     diets.map(d => {
                         return (
-                            <h5 key={prevId++}> {d} </h5>
+                            <h5 key={prevId++}>- {d} </h5>
                         )
                     })
                 }
