@@ -14,7 +14,7 @@ export default class Start extends Component {
     render() {
         return (
             <div>
-                <body>
+                <div>
                     <video className={style.video} autoPlay loop muted>
                         <source src={video} type='video/mp4'></source>
                     </video>
@@ -27,7 +27,7 @@ export default class Start extends Component {
                             <img className={style.imag} src={plato} alt="Platito"></img>
                         </Link>
                     </div>
-                </body>
+                </div>
 
             </div>
 

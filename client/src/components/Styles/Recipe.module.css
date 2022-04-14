@@ -6,9 +6,13 @@
 }
 
 .name {
-    font-size: 11px;
+    width: 300px;
+    font-size: 20px;
+    margin-bottom: 20px;
 }
 
 .img{
+    margin-bottom: 20px;
     height: 280px;
+    border-radius: 50px;
 }

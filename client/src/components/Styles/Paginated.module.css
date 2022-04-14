@@ -5,3 +5,26 @@
     align-items: center;
     color: white;
 }
+
+.ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.list {
+    list-style-type: none;
+}
+
+.btn {
+    color: white;
+    border: none;
+    background-color: black;
+    font-size: 20px;
+    margin: 5px;
+    border-radius: 3px;
+}
+
+.btn:hover {
+    background-color: rgb(255, 255, 255);
+    color: black
+}

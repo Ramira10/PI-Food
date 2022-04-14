@@ -50,12 +50,12 @@ export default function rootReducer(state = initialState, action) {
         case "ORDER_BY_ALPHABET": // PASAR A IF Y PROBAR
             let sortByAlphabet = [...state.showedRecipes];
             sortByAlphabet = action.payload === 'atoz' ?
-            state.recipes.sort(function(a, b) {
+            state.showedRecipes.sort(function(a, b) {
                 if(a.name.toLowerCase() > b.name.toLowerCase()) return 1;
                 if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
                 return 0;
             }) :
-            state.recipes.sort(function(a, b) {
+            state.showedRecipes.sort(function(a, b) {
                 if(a.name.toLowerCase() < b.name.toLowerCase()) return 1;
                 if(a.name.toLowerCase() > b.name.toLowerCase()) return -1;
                 return 0
@@ -66,14 +66,14 @@ export default function rootReducer(state = initialState, action) {
             }
 
         case "ORDER_BY_SCORE":
-            let sortedByScore = [...state.recipes];
+            let sortedByScore = [...state.showedRecipes];
             sortedByScore = action.payload === 'asc' ?
-            state.recipes.sort(function(a, b) {
+            state.showedRecipes.sort(function(a, b) {
                 if (a.score > b.score) return 1;
                 if (a.score < b.score) return -1;
                 return 0;
               }) :
-              state.recipes.sort(function(a, b) {
+              state.showedRecipes.sort(function(a, b) {
                 if (a.score < b.score) return 1;
                 if (a.score > b.score) return -1;
                 return 0;

@@ -6,25 +6,24 @@ let prevId = 1;
 export default function Recipe(props) {
     const { name, image, diets } = props;
 
+
     return (
         <div className={style.general}>
+            <img className={style.img} src={image} alt="Not Found."></img>
+            
+            
+          <h1 className={style.name}>{name}</h1>
+           
 
-            <div>
-                <img className={style.img} src={image} alt="Not Found."></img>
-            </div>
-            <div className={style.name}>
-                <h2>{name}</h2>
-            </div>
-            <div>
-                {
-                    diets.map(d => {
-                        return (
-                            <h5 key={prevId++}>- {d} </h5>
-                        )
-                    })
-                }
-            </div>
-
+            
+            <h3>Types of diets: </h3>
+            {
+                diets.map(d => {
+                    return (
+                        <h5 key={prevId++}>- {d} </h5>
+                    )
+                })
+            }
         </div>
     )
 }

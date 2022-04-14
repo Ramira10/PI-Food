@@ -23,7 +23,7 @@ let prevId = 1;
 
 function Home(props) {
 
-    // const [order, setOrder] = useState('')
+    const [/* order */, setOrder] = useState('')
 
     // Lógica para mostrar 9 recetas por página
     const [page, setPage] = useState(1);
@@ -32,9 +32,9 @@ function Home(props) {
     const firstRecipe = quantityRecipes - recipesPage;
     const showRecipes = props.showedRecipes.slice(firstRecipe, quantityRecipes);
 
-    // const paged = function(pageNumber) {
-    //     setPage(pageNumber)
-    // };
+    const paged = function (pageNumber) {
+        setPage(pageNumber)
+    };
 
     useEffect(() => {
         props.getRecipes();
@@ -48,17 +48,25 @@ function Home(props) {
         setPage(1);
     }
 
-    // let handleFilterByTypeDiet = (e) => {
+    let handleFilterByTypeDiet = (e) => {
+        e.preventDefault();
+        props.filterByTypeDiet(e.target.value);
+        setPage(1);
+    }
 
-    // }
+    let handleOrderByAlphabet = (e) => {
+        e.preventDefault();
+        props.orderByAlphabet(e.target.value);
+        setPage(1);
+        setOrder(`Order ${e.target.value}`);
+    }
 
-    // let handleOrderByAlphabet = (e) => {
-
-    // }
-
-    // let handleOrderByScore = (e) => {
-
-    // }
+    let handleOrderByScore = (e) => {
+        e.preventDefault();
+        props.orderByScore(e.target.value);
+        setPage(1);
+        setOrder(`Order ${e.target.value}`);
+    }
 
 
     return (
@@ -83,7 +91,7 @@ function Home(props) {
                 {/* FILTRADO POR TIPO DE DIETA */}
                 <div>
                     <label>Filter by Type Diets: </label>
-                    <select name="diets">
+                    <select name="diets" onChange={e => handleFilterByTypeDiet(e)}>
                         <option disabled selected>Select...</option>
                         <option value="gluten free">Gluten Free</option>
                         <option value="ketogenic">Keto</option>
@@ -104,20 +112,20 @@ function Home(props) {
                 {/* ORDEN ALFABÉTICO  */}
                 <div>
                     <label>Order alphabetically: </label>
-                    <select name="alphabetical">
+                    <select name="alphabetical" onChange={e => handleOrderByAlphabet(e)}>
                         <option disabled selected>Select...</option>
-                        <option value="A - Z">A to Z</option>
-                        <option value="Z - A">Z to A</option>
+                        <option value="atoz">A to Z</option>
+                        <option value="ztoa">Z to A</option>
                     </select>
                 </div>
 
                 {/* ORDEN DE MIN A MAX - MAX A MIN  */}
                 <div>
                     <label>Order by Score: </label>
-                    <select name="numerical">
+                    <select name="numerical" onChange={e => handleOrderByScore(e)}>
                         <option disabled selected>Select...</option>
-                        <option value="Asc">From Min to Max</option>
-                        <option value="Des">From Max to Min</option>
+                        <option value="asc">From Min to Max</option>
+                        <option value="desc">From Max to Min</option>
                     </select>
                 </div>
 
@@ -148,9 +156,10 @@ function Home(props) {
             </div>
 
             <hr></hr>
-                
+
             <div>
-                <Paginated></Paginated>
+                <Paginated recipesPage={recipesPage} showedRecipes={props.showedRecipes.length} paged={paged}></Paginated>
+                <span className={style.actual}> {page} of {Math.ceil(props.showedRecipes.length / recipesPage)} </span>
             </div>
 
         </div>
