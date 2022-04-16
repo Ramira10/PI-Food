@@ -9,6 +9,8 @@
     width: 300px;
     font-size: 20px;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .img{

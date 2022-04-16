@@ -148,7 +148,9 @@ function Home(props) {
                                     image={e.image}
                                     name={e.name}
                                     diets={e.diets}
+                                    id={e.id}
                                 ></Recipe>
+
                             </div>
                         )
                     })

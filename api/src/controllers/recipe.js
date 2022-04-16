@@ -14,7 +14,13 @@ const get_ApiID = async (id) => {
         score: detail.spoonacularScore,
         healthScore: detail.healthScore,
         image: detail.image,
-        steps: detail.analyzedInstructions, // Seguramente requiera más lógica para llegar a steps.
+        steps: detail.analyzedInstructions[0]?.steps.map(s => {
+            return {
+                number: s.number,
+                step: s.step,
+            }
+        }),
+        dish: detail.dishTypes,
         diets: detail.diets,
         // dishTypes: detail.dishTypes,
     }
@@ -48,9 +54,14 @@ const get_Api = async () => {
             score: r.spoonacularScore,
             healthScore: r.healthScore,
             image: r.image,
-            steps: r.analyzedInstructions, // Seguramente requiera más lógica para llegar a steps.
-            diets: r.diets, // r.diets.map((d)=> {return{name:d}}),
-            // dishTypes: r.dishTypes.map((d)=> {return{name:d}}), // tipo de plato
+            steps: r.analyzedInstructions[0]?.steps.map(s => {
+                return {
+                    number: s.number,
+                    step: s.step,
+                }
+            }),
+            diets: r.diets, 
+            dish: r.dishTypes,
         }
     })
     return infoApi;
