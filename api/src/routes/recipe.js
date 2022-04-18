@@ -18,14 +18,14 @@ router.post('/', async (req, res, next) => {
             steps,
         })
 
-        if (diets) {
-            let dietDB = await Diet.findAll({
-                where: {
-                    name: diets
-                }
-            })
-            newRecipe.addDiet(dietDB);
-        }
+
+        let dietDB = await Diet.findAll({
+            where: {
+                name: diets
+            }
+        })
+        newRecipe.addDiet(dietDB);
+
 
         res.status(200).send(newRecipe);
     } catch (err) {

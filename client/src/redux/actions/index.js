@@ -74,7 +74,7 @@ export function getDiets() {
             var response = await axios.get(`http://localhost:3001/types`);
             return dispatch({
                 type: "GET_DIETS",
-                payload: response.data // response.data.map(d => d.name)});
+                payload: response.data.map(d => d.name)
             })
         } catch (err) {
             console.log(err);
@@ -82,13 +82,13 @@ export function getDiets() {
     }
 }
 
-export function addRecipe(payload) {
+export function createRecipe(payload) {
     return async function(dispatch) {
         try {
             var response = await axios.post(`http://localhost:3001/recipe`, payload);
             return response;
             // return dispatch({
-            //     type: "ADD_RECIPE",
+            //     type: "CREATE_RECIPE",
             //     payload: response,
             // })
         } catch (err) {

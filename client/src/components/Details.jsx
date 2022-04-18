@@ -33,7 +33,7 @@ export default function Details(props) {
                     <h3>Dish Type: </h3>
                     {details.dish?.map(d => {
                         return (
-                            <p key={d}> {d.charAt(0).toUpperCase() + d.slice(1)} </p>
+                            <p key={d}> {d} </p>
                         )
                     })}
                 </div> :
@@ -42,15 +42,26 @@ export default function Details(props) {
 
             {details.diets ?
                 <div>
-                    <h3>Diet Type: </h3>
-                    {details.diets?.map(d => {
-                        return (
-                            <p key={d}> {d.charAt(0).toUpperCase() + d.slice(1)} </p>
-                        )
-                    })}
-                </div> :
+                <h3>Types of diets: </h3>
+                {
+                    details.diets?.map(d => {
+                        if(d.hasOwnProperty('name')) {
+                            return (
+                                <p key={d}>- {d.name[0].toUpperCase() + d.name.slice(1)} </p>
+                            )
+                        } else {
+                            return (
+                                <p key={d}>- {d[0].toUpperCase() + d.slice(1)} </p>
+                            )
+                        }
+                    })
+                }
+            </div>
+                :
                 <h5>Diet Type not found.</h5>
             }
+
+            
 
             {details.score ? 
             <div>

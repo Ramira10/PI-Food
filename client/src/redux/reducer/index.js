@@ -33,7 +33,7 @@ export default function rootReducer(state = initialState, action) {
                 diets: action.payload,
             };
 
-        case "ADD_RECIPE":
+        case "CREATE_RECIPE":
             return {
                 ...state,
             };

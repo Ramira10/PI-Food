@@ -1,11 +1,9 @@
 import React from "react";
-// import { Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import Recipe from "./Recipe"
 import SearchBar from "./SearchBar";
 import Paginated from "./Paginated";
 import style from "./Styles/Home.module.css"
-
-
 import { useState, useEffect } from "react";
 import { connect, /* useDispatch */ /* useSelector */ } from "react-redux";
 import {
@@ -85,7 +83,9 @@ function Home(props) {
 
                 {/* BOTON PARA CREAR UNA RECETA  */}
                 <div>
+                    <Link to="/recipe">
                     <button>Create Recipe</button>
+                    </Link>
                 </div>
 
                 {/* FILTRADO POR TIPO DE DIETA */}

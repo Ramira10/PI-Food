@@ -2,8 +2,6 @@ import React from "react";
 import style from "./Styles/Recipe.module.css"
 import { Link } from 'react-router-dom';
 
-
-
 let prevId = 1;
 
 export default function Recipe(props) {
@@ -15,26 +13,34 @@ export default function Recipe(props) {
 
 
             <Link to={`/home/${id}`}>
-                <img className={style.img} src={image} alt="Not Found."></img>
+                {
+                    image ?  <img className={style.img} src={image} alt="Img Not Found."></img>
+                    :
+                    <img className={style.img} src={"https://agencias.assist1.com.co/assets/images/no-image.png"} alt="Img Not Found."></img>
+                }
             </Link>
 
 
             <h1 className={style.name}>{name}</h1>
 
-        {diets.length ?
+
             <div>
                 <h3>Types of diets: </h3>
-            {
-                diets.map(d => {
-                    return (
-                        <h5 key={prevId++}>- {d.charAt(0).toUpperCase() + d.slice(1)} </h5>
-                        )
+                {
+                    diets?.map(d => {
+                        if(d.hasOwnProperty('name')) {
+                            return (
+                                <p key={prevId++}>- {d.name[0].toUpperCase() + d.name.slice(1)} </p>
+                            )
+                        } else {
+                            return (
+                                <p key={prevId++}>- {d[0].toUpperCase() + d.slice(1)} </p>
+                            )
+                        }
                     })
                 }
-                </div> :
-                <h5>It does not have a defined type of diet.</h5>
-            }
+            </div>
 
-        </div>
-    )
-}
+            </div>
+        )
+};

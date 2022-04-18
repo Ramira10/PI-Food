@@ -33,7 +33,7 @@ router.get('/', async (req, res, next) => {
                         healthScore: r.healthScore,
                         image: r.image,
                         steps: r.steps,
-                        diets: r.diets,
+                        diets: r.diets ? r.diets : r.diets.map(r => r.name)
                     }
                 })
                 return res.status(200).send(recipes);
@@ -50,7 +50,7 @@ router.get('/', async (req, res, next) => {
                     healthScore: r.healthScore,
                     image: r.image,
                     steps: r.steps,
-                    diets: r.diets,
+                    diets: r.diets ? r.diets : r.diets.map(r => r.name),
                 }
             })
             return res.status(200).send(recipes)
