@@ -78,19 +78,19 @@ function Home(props) {
 
                 {/* BOTON PARA REFRESCAR */}
                 <div>
-                    <button onClick={handleClick}>REFRESH</button>
+                    <button className={style.btn} onClick={handleClick}>REFRESH</button>
                 </div>
 
                 {/* BOTON PARA CREAR UNA RECETA  */}
                 <div>
                     <Link to="/recipe">
-                    <button>Create Recipe</button>
+                    <button className={style.btn}>CREATE</button>
                     </Link>
                 </div>
 
                 {/* FILTRADO POR TIPO DE DIETA */}
-                <div>
-                    <label>Filter by Type Diets: </label>
+                <div className={style.box}>
+                    <label className={style.text}>Filter by type of diet: </label>
                     <select name="diets" onChange={e => handleFilterByTypeDiet(e)}>
                         <option disabled selected>Select...</option>
                         <option value="gluten free">Gluten Free</option>
@@ -110,8 +110,8 @@ function Home(props) {
                 </div>
 
                 {/* ORDEN ALFABÉTICO  */}
-                <div>
-                    <label>Order alphabetically: </label>
+                <div className={style.box}>
+                    <label className={style.text}>Order alphabetically: </label>
                     <select name="alphabetical" onChange={e => handleOrderByAlphabet(e)}>
                         <option disabled selected>Select...</option>
                         <option value="atoz">A to Z</option>
@@ -120,12 +120,12 @@ function Home(props) {
                 </div>
 
                 {/* ORDEN DE MIN A MAX - MAX A MIN  */}
-                <div>
-                    <label>Order by Score: </label>
+                <div className={style.box}>
+                    <label className={style.text}>Order by Score: </label>
                     <select name="numerical" onChange={e => handleOrderByScore(e)}>
                         <option disabled selected>Select...</option>
-                        <option value="asc">From Min to Max</option>
-                        <option value="desc">From Max to Min</option>
+                        <option value="asc">Min to Max</option>
+                        <option value="desc">Max to Min</option>
                     </select>
                 </div>
 
@@ -147,6 +147,7 @@ function Home(props) {
                                 <Recipe
                                     image={e.image}
                                     name={e.name}
+                                    score={e.score}
                                     diets={e.diets}
                                     id={e.id}
                                 ></Recipe>

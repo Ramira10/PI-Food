@@ -20,7 +20,7 @@ export default class Start extends Component {
                     </video>
                     <div className={style.overlay}></div>
                     <div className={style.absolute}>
-                        <h1 className={style.text}> Food APP </h1>
+                        <h1 className={style.text}> PI Food </h1>
                     </div>
                     <div>
                         <Link to='/home'>

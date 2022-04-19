@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRecipeDetails } from "../redux/actions";
 import { Link } from 'react-router-dom';
-
+import style from "./Styles/Details.module.css"
 
 export default function Details(props) {
 
@@ -17,32 +17,35 @@ export default function Details(props) {
     console.log(details)
 
     return (
-        <div key={id}>
-
-            {/* IMAGEN */}
-            <div>
-                <img src={details.image} alt="Img not found"></img>
-            </div>
+        <div className={style.div} key={id}>
 
             {/* NOMBRE */}
+            <div className={style.title}>
             <h1>{details.name}</h1>
+            </div>
+            
+            {/* IMAGEN */}
+            <div>
+                <img className={style.img} src={details.image} alt="Img not found"></img>
+            </div>
 
             {/* TIPO DE PLATO */}
             {details.dish ?
                 <div>
-                    <h3>Dish Type: </h3>
+                    <h3  className={style.title}>Dish Type: </h3>
                     {details.dish?.map(d => {
                         return (
-                            <p key={d}> {d} </p>
+                            <p key={d}>- {d[0].toUpperCase() + d.slice(1)} </p>
                         )
                     })}
                 </div> :
-                <h5>Dish Type not found.</h5>
+                <h5 className={style.notFound}>Dish Type not found.</h5>
             }
+
 
             {details.diets ?
                 <div>
-                <h3>Types of diets: </h3>
+                <h3  className={style.title}>Types of diets: </h3>
                 {
                     details.diets?.map(d => {
                         if(d.hasOwnProperty('name')) {
@@ -58,43 +61,46 @@ export default function Details(props) {
                 }
             </div>
                 :
-                <h5>Diet Type not found.</h5>
+                <h5 className={style.notFound}>Diet Type not found.</h5>
             }
 
             
 
-            {details.score ? 
+            {details.summary ? 
             <div>
-                <h3>Summary: </h3>
-                <p>{details.summary?.replace(/<[^>]*>/g, '')}</p>
+                <h3 className={style.title}>Summary: </h3>
+                <p className={style.area}>{details.summary?.replace(/<[^>]*>/g, '')}</p>
             </div> :
-                <h5>This recipe does not have summary.</h5>
+                <h5 className={style.notFound}>This recipe does not have summary.</h5>
             }
 
             {details.score ? 
             <div>
-                <h4>Score: {details.score} </h4>
-                <h4>Health Score: {details.healthScore} </h4>
+                <h3  className={style.title}>Score:</h3>
+                <p>{details.score}</p>
+                <h3  className={style.title}>Health Score: </h3>
+                <p>{details.healthScore}</p>
             </div> :
-                <h5>This recipe does not have score.</h5>
+                <h5 className={style.notFound}>This recipe does not have score.</h5>
             }
 
             {details.steps ?
                 <div>
-                    <h3>Steps: </h3>
+                    <h3 className={style.title}>Steps: </h3>
                     <ul>{Array.isArray(details.steps) ? details.steps.map(s => {
                         return (
-                            <p key={s.number}> {s.number}: {s.step}</p>
+                            <p className={style.area} key={s.number}> {s.number}: {s.step}</p>
                         )
                     }) :
-                        <p>{details.steps}</p>
+                        <p className={style.area}>{details.steps}</p>
                     } </ul>
                 </div> :
-                <h5>This recipe does not have step by step</h5>
+                <h5 className={style.notFound}>This recipe does not have step by step</h5>
             }
 
-
-            <Link to="/home"> <button>HOME</button> </Link>
+            <div>
+            <Link to="/home"> <button className={style.btn}>HOME</button> </Link>
+            </div>
 
         </div>
     )

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getRecipeByName } from "../redux/actions";
 import style from "./Styles/SearchBar.module.css"
+import img from "./Styles/Icono.png"
 
 export default function SearchBar() {
     const dispatch = useDispatch();
@@ -23,7 +24,8 @@ export default function SearchBar() {
     return (
         <div className={style.general}>
             <div className={style.title}>
-                <h1> SearchBar </h1>
+                <img className={style.img} src={img} alt="Img Not Found"></img>
+                <h1 className={style.txt}> PI Food </h1>
             </div>
             <div className={style.ib}>
 

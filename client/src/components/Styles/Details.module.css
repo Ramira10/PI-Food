@@ -1,0 +1,44 @@
+.div {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding-bottom: 80px;
+}
+
+.img {
+    border-radius: 50px;
+    width: 500px;
+}
+
+.title {
+    color: rgb(255, 181, 43);
+}
+
+.notFound {
+    color: red;
+}
+
+.area {
+    display: flex;
+    justify-content: center;
+    text-align: justify;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+.btn {
+    height: 60px;
+    width: 170px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+.btn:hover {
+    background-color: rgb(80, 80, 80);
+    color: white;
+    height: 60px;
+    width: 190px;
+    transition: 0.2s;
+}
+
