@@ -1,10 +1,13 @@
-.div{
-    padding: 50px;
-    background-image: url("./Background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
+.enc {
+    background-color: rgba(0, 0, 0, 0.423);
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .title {
@@ -12,16 +15,24 @@
 }
 
 .form {
-    background-color: rgb(255, 255, 255);
-    border-radius: 20px;
-    color: #999;
-    padding: 20px;
+    /* background-color: rgb(255, 255, 255); */
+    /* border-radius: 20px; */
+    color: white;
     padding-left: 50px;
     padding-right: 50px;
     margin-left: auto;
     margin-right: auto;
-    width: 200px;
-    height: 1050px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.423);
+}
+
+
+.hr {
+    border-color: rgba(255, 255, 255, 0.23);
+    width: 290px;
 }
 
 .txt {
@@ -45,7 +56,6 @@
     border: solid 1px #999;
     border-radius: 5px;
     outline: none;
-    margin-left: -23px;
     height: 80px;
     width: 250px;
 }
@@ -55,3 +65,34 @@
     font-size: 10px;
 }
 
+.btn1 {
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+.btn1:hover {
+    background-color: rgb(64, 255, 0);
+    color: rgb(0, 0, 0);
+    height: 30px;
+    width: 110px;
+    transition: 0.2s;
+}
+
+.btn2 {
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+.btn2:hover {
+    background-color: rgb(255, 0, 0);
+    color: rgb(0, 0, 0);
+    height: 30px;
+    width: 110px;
+    transition: 0.2s;
+}

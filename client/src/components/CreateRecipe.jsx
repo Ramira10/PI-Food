@@ -124,30 +124,39 @@ function CreateRecipe(props) {
     }
 
     return (
-        <div className={style.div}>
+        <div>
 
-            <div>
-                <h1 className={style.title}>
-                    Create Recipe
-                </h1>
+            <div className={style.enc}>
+
+                <div>
+                    <h1 className={style.title}>
+                        Create Recipe
+                    </h1>
+                </div>
+
+                <div>
+                    <hr className={style.hr}></hr>
+                </div>
+
             </div>
 
-            <div className={style.form}>
 
-                <form onSubmit={handleSubmit}>
 
+            <form className={style.form} onSubmit={handleSubmit}>
+
+                <div className={style.div1}>
                     <div><label>Name: </label></div>
                     <input
-                        className={style.textboxclass}
                         type={"text"}
                         name={"name"}
                         value={input.name}
                         onChange={e => handleChange(e)}
                     ></input>
-                    {errors.name && <p className={style.err}>{errors.name}</p>}
+                    {!errors.name ? null : <p className={style.err}>{errors.name}</p>}
+                </div>
 
 
-
+                <div>
                     <div className={style.txt}><label>Summary: </label></div>
                     <textarea
                         className={style.inputext}
@@ -156,9 +165,10 @@ function CreateRecipe(props) {
                         value={input.summary}
                         onChange={e => handleChange(e)}
                     ></textarea>
-                    {errors.summary && <p className={style.err}>{errors.summary}</p>}
+                    {!errors.summary ? null : <p className={style.err}>{errors.summary}</p>}
+                </div>
 
-
+                <div>
                     <div className={style.txt}><label>Score: </label></div>
                     <input
                         className={style.inputScore}
@@ -167,9 +177,11 @@ function CreateRecipe(props) {
                         value={input.score}
                         onChange={e => handleChange(e)}
                     ></input>
-                    {errors.score && <p className={style.err}>{errors.score}</p>}
+                    {!errors.score ? null : <p className={style.err}>{errors.score}</p>}
+                </div>
 
 
+                <div>
                     <div className={style.txt}><label>Health Score: </label></div>
                     <input
                         className={style.inputScore}
@@ -178,10 +190,11 @@ function CreateRecipe(props) {
                         value={input.healthScore}
                         onChange={e => handleChange(e)}
                     ></input>
-                    {errors.healthScore && <p className={style.err}>{errors.healthScore}</p>}
+                    {!errors.healthScore ? null : <p className={style.err}>{errors.healthScore}</p>}
+                </div>
 
 
-
+                <div>
                     <div className={style.txt}><label>URL Image: </label></div>
                     <input
                         className={style.input}
@@ -190,10 +203,11 @@ function CreateRecipe(props) {
                         value={input.image}
                         onChange={e => handleChange(e)}
                     ></input>
-                    {errors.image && <p className={style.err}>{errors.image}</p>}
+                    {!errors.image ? null : <p className={style.err}>{errors.image}</p>}
+                </div>
 
 
-
+                <div>
                     <div className={style.txt}><label>Steps: </label></div>
                     <textarea
                         className={style.inputext}
@@ -202,10 +216,11 @@ function CreateRecipe(props) {
                         value={input.steps}
                         onChange={e => handleChange(e)}
                     ></textarea>
-                    {errors.steps && <p className={style.err}>{errors.steps}</p>}
+                    {!errors.steps ? null : <p className={style.err}>{errors.steps}</p>}
+                </div>
 
 
-
+                <div>
                     <div className={style.txt}><label>Types of diet: </label></div>
                     <br></br>
                     {props.diets.map(d => {
@@ -216,17 +231,24 @@ function CreateRecipe(props) {
                             </div>
                         )
                     })}
-                    {errors.diets && <p className={style.err}>{errors.diets}</p>}
+                    {!errors.diets ? null : <p className={style.err}>{errors.diets}</p>}
+                </div>
 
 
 
-        
-                    <button type="submit" >CREATE RECIPE </button>
-                    <Link to="/home"><button>GO BACK</button></Link>
+                <br></br>
+                <div>
+                    <button className={style.btn1} type="submit" >CREATE</button>
+                </div>
+                <br></br>
+                <div>
+                    <Link to="/home"><button className={style.btn2}>GO BACK</button></Link>
+                </div>
+                <br></br>
 
-                </form>
+            </form>
 
-            </div>
+
         </div>
     )
 }
