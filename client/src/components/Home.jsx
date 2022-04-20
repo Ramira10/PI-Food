@@ -93,17 +93,18 @@ function Home(props) {
                     <label className={style.text}>Filter by type of diet: </label>
                     <select name="diets" onChange={e => handleFilterByTypeDiet(e)}>
                         <option disabled selected>Select...</option>
+                        <option value="all">ALL</option>
                         <option value="gluten free">Gluten Free</option>
-                        <option value="ketogenic">Keto</option>
+                        <option value="ketogenic">Ketogenic</option>
                         <option value="vegetarian">Vegetarian</option>
-                        <option value="lacto vegetarian">Lacto-Vegetarian</option>
-                        <option value="ovo vegetarian">Ovo-Vegetarian</option>
-                        <option value="lacto ovo vegetarian">Lacto-Ovo-Vegetarian</option>
+                        <option value="lacto vegetarian">Lacto Vegetarian</option>
+                        <option value="ovo vegetarian">Ovo Vegetarian</option>
+                        <option value="lacto ovo vegetarian">Lacto Ovo Vegetarian</option>
                         <option value="vegan">Vegan</option>
-                        <option value="pescetarian">Pescetarian</option>
-                        <option value="paleolithic">Paleo</option>
+                        <option value="pescatarian">Pescatarian</option>
+                        <option value="paleolithic">Paleolithic</option>
                         <option value="primal">Primal</option>
-                        <option value="low fodmap">Low FODMAP</option>
+                        <option value="fodmap friendly">Fodmap Friendly</option>
                         <option value="whole 30">Whole30</option>
                         <option value="dairy free">Dairy Free</option>
                     </select>
@@ -161,10 +162,16 @@ function Home(props) {
 
             <hr></hr>
 
-            <div>
-                <Paginated recipesPage={recipesPage} showedRecipes={props.showedRecipes.length} paged={paged}></Paginated>
-                <span className={style.actual}> {page} of {Math.ceil(props.showedRecipes.length / recipesPage)} </span>
-            </div>
+            
+                {
+                    props.showedRecipes.length > 9 ?
+                    <div className={style.pag}>
+                        <Paginated recipesPage={recipesPage} showedRecipes={props.showedRecipes.length} paged={paged}></Paginated>
+                        <span className={style.actual}> {page} of {Math.ceil(props.showedRecipes.length / recipesPage)} </span>
+                    </div> :
+                    <div><span className={style.actual}> {page} of {Math.ceil(props.showedRecipes.length / recipesPage)} </span></div>
+                } 
+            
 
         </div>
     )

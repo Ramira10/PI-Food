@@ -12,6 +12,8 @@ export default function SearchBar() {
     let handleChange = (e) => {
         e.preventDefault();
         setInput(e.target.value);
+        // dispatch(getRecipeByName(input)); // Si quisiera buscar cada vez que escribo en la barra, esta es la solución.
+        // No la dejo habilitada porque consume muy rápido los request de la API.
     }
 
     let handleSubmit = (e) => {

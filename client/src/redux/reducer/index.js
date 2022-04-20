@@ -15,7 +15,7 @@ export default function rootReducer(state = initialState, action) {
                 allRecipes: action.payload,
             };
 
-        case "GET_RECIPE_BY_NAME": 
+        case "GET_RECIPE_BY_NAME":
             return {
                 ...state,
                 showedRecipes: action.payload,
@@ -39,27 +39,40 @@ export default function rootReducer(state = initialState, action) {
             };
 
         case "FILTER_BY_TYPE_DIET": // FILTRO RECETAS EN BASE AL TIPO DE DIETA 
-            const recipes = state.allRecipes;
-            const filter = recipes.filter(r => r.diets?.some(d => d.toLowerCase() === action.payload.toLowerCase()))
-            // const filter = recipes.filter((r) => r.diet.includes(action.payload)); ¿FUNCIONA?
+            // const recipes = state.allRecipes;
+            // const filter1 = recipes.filter((r) => r.diets?.includes({name: action.payload}))
+            // const filter = recipes.filter((r) => r.diets?.includes(action.payload)); 
+            // return {
+            //     ...state,
+            //     showedRecipes: [...filter, ...filter1],
+            // }
+            if(action.payload === 'all') {
+                return {
+                    ...state,
+                    showedRecipes: state.allRecipes
+                }
+            }
+            let filter1 = state.allRecipes.filter(r => r.diets.includes(action.payload))
+            let filter2 = state.allRecipes.filter(r => r.diets.includes({name: action.payload})) // ¿No filtra la de base de datos?
             return {
                 ...state,
-                showedRecipes: filter,
+                showedRecipes: [...filter1, ...filter2],
             }
+
 
         case "ORDER_BY_ALPHABET": // PASAR A IF Y PROBAR
             let sortByAlphabet = [...state.showedRecipes];
             sortByAlphabet = action.payload === 'atoz' ?
-            state.showedRecipes.sort(function(a, b) {
-                if(a.name.toLowerCase() > b.name.toLowerCase()) return 1;
-                if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
-                return 0;
-            }) :
-            state.showedRecipes.sort(function(a, b) {
-                if(a.name.toLowerCase() < b.name.toLowerCase()) return 1;
-                if(a.name.toLowerCase() > b.name.toLowerCase()) return -1;
-                return 0
-            });
+                state.showedRecipes.sort(function (a, b) {
+                    if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+                    if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+                    return 0;
+                }) :
+                state.showedRecipes.sort(function (a, b) {
+                    if (a.name.toLowerCase() < b.name.toLowerCase()) return 1;
+                    if (a.name.toLowerCase() > b.name.toLowerCase()) return -1;
+                    return 0
+                });
             return {
                 ...state,
                 showedRecipes: sortByAlphabet,
@@ -68,20 +81,20 @@ export default function rootReducer(state = initialState, action) {
         case "ORDER_BY_SCORE":
             let sortedByScore = [...state.showedRecipes];
             sortedByScore = action.payload === 'asc' ?
-            state.showedRecipes.sort(function(a, b) {
-                if (a.score > b.score) return 1;
-                if (a.score < b.score) return -1;
-                return 0;
-              }) :
-              state.showedRecipes.sort(function(a, b) {
-                if (a.score < b.score) return 1;
-                if (a.score > b.score) return -1;
-                return 0;
-              });
-              return {
+                state.showedRecipes.sort(function (a, b) {
+                    if (a.score > b.score) return 1;
+                    if (a.score < b.score) return -1;
+                    return 0;
+                }) :
+                state.showedRecipes.sort(function (a, b) {
+                    if (a.score < b.score) return 1;
+                    if (a.score > b.score) return -1;
+                    return 0;
+                });
+            return {
                 ...state,
                 showedRecipes: sortedByScore,
-              };
+            };
 
         default:
             return state;

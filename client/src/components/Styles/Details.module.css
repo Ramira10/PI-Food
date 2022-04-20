@@ -14,6 +14,10 @@
     color: rgb(255, 181, 43);
 }
 
+.health {
+    color: rgb(0, 198, 37)
+}
+
 .notFound {
     color: red;
 }
@@ -41,4 +45,5 @@
     width: 190px;
     transition: 0.2s;
 }
+
 

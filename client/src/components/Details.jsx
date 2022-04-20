@@ -26,7 +26,11 @@ const Details = (props) => {
             
             {/* IMAGEN */}
             <div>
-                <img className={style.img} src={details.image} alt="Img not found"></img>
+                {
+                    details.image ?  <img className={style.img} src={details.image} alt="Img Not Found."></img>
+                    :
+                    <img className={style.img} src={"https://agencias.assist1.com.co/assets/images/no-image.png"} alt="Img Not Found."></img>
+                }
             </div>
 
             {/* TIPO DE PLATO */}
@@ -78,7 +82,7 @@ const Details = (props) => {
             <div>
                 <h3  className={style.title}>Score:</h3>
                 <p>{details.score}</p>
-                <h3  className={style.title}>Health Score: </h3>
+                <h3  className={style.health}>Health Score: </h3>
                 <p>{details.healthScore}</p>
             </div> :
                 <h5 className={style.notFound}>This recipe does not have score.</h5>
