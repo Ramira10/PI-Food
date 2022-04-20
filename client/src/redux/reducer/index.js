@@ -39,26 +39,12 @@ export default function rootReducer(state = initialState, action) {
             };
 
         case "FILTER_BY_TYPE_DIET": // FILTRO RECETAS EN BASE AL TIPO DE DIETA 
-            // const recipes = state.allRecipes;
-            // const filter1 = recipes.filter((r) => r.diets?.includes({name: action.payload}))
-            // const filter = recipes.filter((r) => r.diets?.includes(action.payload)); 
-            // return {
-            //     ...state,
-            //     showedRecipes: [...filter, ...filter1],
-            // }
-            if(action.payload === 'all') {
-                return {
-                    ...state,
-                    showedRecipes: state.allRecipes
-                }
-            }
-            let filter1 = state.allRecipes.filter(r => r.diets.includes(action.payload))
-            let filter2 = state.allRecipes.filter(r => r.diets.includes({name: action.payload})) // ¿No filtra la de base de datos?
+            const all = state.allRecipes;
+            const filter = action.payload === 'all' ? all : all.filter(r => r.diets.find(d => d.name === action.payload || d === action.payload))
             return {
                 ...state,
-                showedRecipes: [...filter1, ...filter2],
+                showedRecipes: filter
             }
-
 
         case "ORDER_BY_ALPHABET": // PASAR A IF Y PROBAR
             let sortByAlphabet = [...state.showedRecipes];
