@@ -148,6 +148,7 @@ function Home(props) {
                                     image={e.image}
                                     name={e.name}
                                     score={e.score}
+                                    healthScore={e.healthScore}
                                     diets={e.diets}
                                     id={e.id}
                                 ></Recipe>

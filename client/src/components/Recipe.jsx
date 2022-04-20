@@ -2,15 +2,20 @@ import React from "react";
 import style from "./Styles/Recipe.module.css"
 import { Link } from 'react-router-dom';
 import img from "./Styles/Star.png"
+import img2 from "./Styles/Star2.png"
 
 let prevId = 1;
 
 export default function Recipe(props) {
-    const { name, image, score, diets, id } = props;
+    const { name, image, score, healthScore, diets, id } = props;
 
     var stars = Math.round((score / 10)/2)
     if(stars === 0) {
         stars = stars + 1;
+    }
+    var stars2 = Math.round((healthScore / 10)/2)
+    if(stars2 === 0) {
+        stars2 = stars2 + 1;
     }
 
     return (
@@ -42,7 +47,15 @@ export default function Recipe(props) {
                     : stars === 4 ? <div><img className={style.star} src={img} alt="Img Not Found."></img> <img className={style.star} src={img} alt="Img Not Found."></img> <img className={style.star} src={img} alt="Img Not Found."></img> <img className={style.star} src={img} alt="Img Not Found."></img></div>
                     : <div><img className={style.star} src={img} alt="Img Not Found."></img> <img className={style.star} src={img} alt="Img Not Found."></img> <img className={style.star} src={img} alt="Img Not Found."></img> <img className={style.star} src={img} alt="Img Not Found."></img> <img className={style.star} src={img} alt="Img Not Found."></img></div>
                 }
-                
+            </div>
+            <div>
+                {
+                    stars2 === 1 ? <img className={style.star} src={img2} alt="Img Not Found."></img>
+                    : stars2 === 2 ? <div><img className={style.star} src={img2} alt="Img Not Found."></img> <img className={style.star} src={img2} alt="Img Not Found."></img></div>
+                    : stars2 === 3 ? <div><img className={style.star} src={img2} alt="Img Not Found."></img> <img className={style.star} src={img2} alt="Img Not Found."></img> <img className={style.star} src={img2} alt="Img Not Found."></img> </div>
+                    : stars2 === 4 ? <div><img className={style.star} src={img2} alt="Img Not Found."></img> <img className={style.star} src={img2} alt="Img Not Found."></img> <img className={style.star} src={img2} alt="Img Not Found."></img> <img className={style.star} src={img2} alt="Img Not Found."></img></div>
+                    : <div><img className={style.star} src={img2} alt="Img Not Found."></img> <img className={style.star} src={img2} alt="Img Not Found."></img> <img className={style.star} src={img2} alt="Img Not Found."></img> <img className={style.star} src={img2} alt="Img Not Found."></img> <img className={style.star} src={img2} alt="Img Not Found."></img></div>
+                }
             </div>
 
 

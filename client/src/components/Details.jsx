@@ -4,7 +4,7 @@ import { getRecipeDetails } from "../redux/actions";
 import { Link } from 'react-router-dom';
 import style from "./Styles/Details.module.css"
 
-export default function Details(props) {
+const Details = (props) => {
 
     const dispatch = useDispatch();
     const id = props.match.params.id;
@@ -14,7 +14,7 @@ export default function Details(props) {
     }, [dispatch, id]);
 
     const details = useSelector(state => state.recipeDetails);
-    console.log(details)
+    // console.log(details)
 
     return (
         <div className={style.div} key={id}>
@@ -105,6 +105,8 @@ export default function Details(props) {
         </div>
     )
 }
+
+export default Details;
 
 // import React from "react";
 // import { getRecipeDetails } from "../redux/actions";
