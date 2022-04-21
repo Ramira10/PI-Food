@@ -86,11 +86,11 @@ export function createRecipe(payload) {
     return async function(dispatch) {
         try {
             var response = await axios.post(`http://localhost:3001/recipe`, payload);
-            return response;
-            // return dispatch({
-            //     type: "CREATE_RECIPE",
-            //     payload: response,
-            // })
+            // return response;
+            return dispatch({
+                type: "CREATE_RECIPE",
+                payload: response,
+            })
         } catch (err) {
             console.log(err);
         }

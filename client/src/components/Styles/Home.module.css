@@ -70,7 +70,6 @@ hr {
     outline: none;
     border-radius: 5px;
     /* font-family:cursive; */
-    font-weight: bold;
 }
 
 .box select:hover {

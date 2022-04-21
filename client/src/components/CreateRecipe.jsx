@@ -16,12 +16,21 @@ let validURL = (str) => {
     return !!pattern.test(str);
 }
 
+let validName = (str) => {
+    let pattern = /^[a-zA-Z\s]+$/;
+    return pattern.test(str);
+}
+
 let validate = (input) => {
     let errors = {};
 
     // Name obligatorio.
     if (!input.name) {
         errors.name = "Name cannot be null."
+    }
+    // Solo letras
+    if (input.name && !validName(input.name)) {
+        errors.name = "Name invalid."
     }
     // Summary obligatorio.
     if (!input.summary) {
@@ -67,7 +76,10 @@ function CreateRecipe(props) {
     })
 
     useEffect(() => {
-        props.getDiets();
+        props.getDiets()
+        if(props.diets.length < 12){
+            props.getDiets()
+        }
         // La siguiente línea es para quitar un warning molesto de la consola.
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);

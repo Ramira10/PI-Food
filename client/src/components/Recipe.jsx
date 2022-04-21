@@ -59,7 +59,7 @@ export default function Recipe(props) {
             </div>
 
 
-            <div className={style.diets}>
+            <div>
                 <h3>Types of diets: </h3>
                 {
                     diets?.map(d => {

@@ -34,6 +34,7 @@ export default function rootReducer(state = initialState, action) {
             };
 
         case "CREATE_RECIPE":
+            // console.log(action.payload)
             return {
                 ...state,
             };
