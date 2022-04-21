@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { Recipe, Diet } = require('../db');
-
+const { types } = require("../controllers/diet")
 const router = Router();
 
 // POST /recipe:
@@ -19,16 +19,18 @@ router.post('/', async (req, res, next) => {
         })
 
         // console.log(diets)
-        // diets.map(async d => {
+        
         let dietDB = await Diet.findAll({
             where: {
                 name: diets/* .map(d => d) */
             }
         })
         newRecipe.addDiet(dietDB);
-        // })
+        const newDiet = await Diet.create({name: diets.pop()})
+        newRecipe.addDiet(newDiet);
 
-
+        // console.log(newDiet);
+        
 
         res.status(200).send(newRecipe);
     } catch (err) {

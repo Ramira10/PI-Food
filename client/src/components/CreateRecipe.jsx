@@ -56,6 +56,9 @@ let validate = (input) => {
     if (!input.diets.length) {
         errors.diets = "Select at least one diet."
     }
+    if (input.diet && !validName(input.diet)) {
+        errors.diet = "Diet invalid."
+    }
 
     return errors;
 
@@ -73,11 +76,12 @@ function CreateRecipe(props) {
         image: "",
         steps: "",
         diets: [],
+        diet: "",
     })
 
     useEffect(() => {
         props.getDiets()
-        if(props.diets.length < 12){
+        if (props.diets.length < 12) {
             props.getDiets()
         }
         // La siguiente línea es para quitar un warning molesto de la consola.
@@ -100,6 +104,8 @@ function CreateRecipe(props) {
         e.preventDefault();
 
         if (Object.keys(errors).length === 0 && input.name !== "" && input.summary !== "") {
+            input.diets.push(input.diet.toLowerCase());
+            console.log(input)
             props.createRecipe(input);
             setInput({
                 name: "",
@@ -109,6 +115,7 @@ function CreateRecipe(props) {
                 image: "",
                 steps: "",
                 diets: [],
+                diet: "",
             })
             history.push('/home')
         } else {
@@ -244,6 +251,16 @@ function CreateRecipe(props) {
                         )
                     })}
                     {!errors.diets ? null : <p className={style.err}>{errors.diets}</p>}
+                </div>
+
+                <div>
+                    <div className={style.txt}>
+                        <label>ADD Diet: </label>
+                    </div>
+                    <div>
+                        <input type="text" name={"diet"} value={input.diet} onChange={e => handleChange(e)}></input>
+                    </div>
+                    {!errors.diet ? null : <p className={style.err}>{errors.diet}</p>}
                 </div>
 
 
