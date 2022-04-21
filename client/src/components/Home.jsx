@@ -16,6 +16,8 @@ import {
     orderByAlphabet,
     orderByScore
 } from "../redux/actions"
+import img1 from "./Styles/Star.png"
+import img2 from "./Styles/Star2.png"
 
 let prevId = 1;
 
@@ -69,7 +71,7 @@ function Home(props) {
 
     return (
         <div className={style.home}>
-            {/* NAVBAR (PENDIENTE) */}
+            {/* SearchBar */}
             <SearchBar />
             <hr></hr>
 
@@ -84,16 +86,16 @@ function Home(props) {
                 {/* BOTON PARA CREAR UNA RECETA  */}
                 <div>
                     <Link to="/recipe">
-                    <button className={style.btn}>CREATE</button>
+                        <button className={style.btn}>CREATE</button>
                     </Link>
                 </div>
 
                 {/* FILTRADO POR TIPO DE DIETA */}
                 <div className={style.box}>
-                    <label className={style.text}>Filter by type of diet: </label>
+                    {/* <label className={style.text}>Filter by type of diet: </label> */}
                     <select name="diets" onChange={e => handleFilterByTypeDiet(e)}>
-                        <option disabled selected>Select...</option>
-                        <option value="all">ALL</option>
+                        {/* <option disabled selected>Filter by type of diet</option> */}
+                        <option value="all">Filter by type of diet</option>
                         <option value="gluten free">Gluten Free</option>
                         <option value="ketogenic">Ketogenic</option>
                         <option value="vegetarian">Vegetarian</option>
@@ -112,9 +114,9 @@ function Home(props) {
 
                 {/* ORDEN ALFABÉTICO  */}
                 <div className={style.box}>
-                    <label className={style.text}>Order alphabetically: </label>
+                    {/* <label className={style.text}>Order alphabetically: </label> */}
                     <select name="alphabetical" onChange={e => handleOrderByAlphabet(e)}>
-                        <option disabled selected>Select...</option>
+                        <option disabled selected>Order alphabetically</option>
                         <option value="atoz">A to Z</option>
                         <option value="ztoa">Z to A</option>
                     </select>
@@ -122,9 +124,9 @@ function Home(props) {
 
                 {/* ORDEN DE MIN A MAX - MAX A MIN  */}
                 <div className={style.box}>
-                    <label className={style.text}>Order by Score: </label>
+                    {/* <label className={style.text}>Order by Score: </label> */}
                     <select name="numerical" onChange={e => handleOrderByScore(e)}>
-                        <option disabled selected>Select...</option>
+                        <option disabled selected>Order by Score</option>
                         <option value="asc">Min to Max</option>
                         <option value="desc">Max to Min</option>
                     </select>
@@ -134,44 +136,71 @@ function Home(props) {
 
             <hr></hr>
 
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-
-            {/* MUESTRO LAS RECETAS */}
-            <div className={style.recipes}>
-                {
-                    showRecipes?.map(e => {
-                        return (
-                            <div className={style.recipe} key={prevId++}>
-                                <Recipe
-                                    image={e.image}
-                                    name={e.name}
-                                    score={e.score}
-                                    healthScore={e.healthScore}
-                                    diets={e.diets}
-                                    id={e.id}
-                                ></Recipe>
-
-                            </div>
-                        )
-                    })
-                }
+            <div className={style.ref}>
+                <div>
+                    <p className={style.starRef}>Score</p>
+                    <img className={style.star} src={img1} alt='Img NOT FOUND'></img>
+                </div>
+                <div>
+                    <p className={style.starRef}>Heath Score</p>
+                    <img className={style.star} src={img2} alt='Img NOT FOUND'></img>
+                </div>
             </div>
+
+            <br></br>
+
+            {props.showedRecipes.length === 0 ?
+            <div className={style.load}>
+                <h5>Loading...</h5>
+            </div> :
+                <div className={style.recipes}>
+            {
+                showRecipes?.map(e => {
+                    return (
+                        <div className={style.recipe} key={prevId++}>
+                            <Recipe
+                                image={e.image}
+                                name={e.name}
+                                score={e.score}
+                                healthScore={e.healthScore}
+                                diets={e.diets}
+                                id={e.id}
+                            ></Recipe>
+
+                        </div>
+                    )
+                })
+            }
+                </div>
+            }
+
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
 
             <hr></hr>
 
-            
-                {
-                    props.showedRecipes.length > 9 ?
-                    <div className={style.pag}>
+
+<div className={style.pag}>
+
+            {
+                props.showedRecipes.length > 9 ?
+                <div className={style.pag}>
                         <Paginated recipesPage={recipesPage} showedRecipes={props.showedRecipes.length} paged={paged}></Paginated>
                         <span className={style.actual}> {page} of {Math.ceil(props.showedRecipes.length / recipesPage)} </span>
                     </div> :
                     <div><span className={style.actual}> {page} of {Math.ceil(props.showedRecipes.length / recipesPage)} </span></div>
-                } 
-            
+                }
+
+            {
+            props.showedRecipes.length === 0 ?
+            <h5 className={style.pub}>Matías Ramira</h5>
+            : <h5 className={style.pub2}>Matías Ramira</h5>
+            }    
+
+</div>
+
 
         </div>
     )

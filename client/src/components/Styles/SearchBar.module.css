@@ -31,6 +31,7 @@
     text-align: center;
     color: grey;
     font-size: x-large;
+    /* font-family:cursive */
 }
 
 .btn {
@@ -40,6 +41,8 @@
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
     color: black;
+    /* font-family:cursive; */
+    font-weight: bold;
 }
 
 .btn:hover {
@@ -53,3 +56,8 @@
     width: 50px;
     margin-right: 10px;
 }
+
+/* .txt {
+    font-family:serif;
+    font-family:cursive
+} */

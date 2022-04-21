@@ -12,14 +12,17 @@
 
 .title {
     color: rgb(255, 181, 43);
+    /* font-family: cursive; */
 }
 
 .health {
-    color: rgb(0, 198, 37)
+    color: rgb(0, 198, 37);
+    /* font-family: cursive; */
 }
 
 .notFound {
     color: red;
+    /* font-family: cursive; */
 }
 
 .area {
@@ -36,6 +39,9 @@
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
     color: black;
+    /* font-family: cursive; */
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .btn:hover {
@@ -44,6 +50,7 @@
     height: 60px;
     width: 190px;
     transition: 0.2s;
+    font-size: 30px;
 }
 
 

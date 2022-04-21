@@ -41,6 +41,7 @@ hr {
 
 .actual {
     color: white;
+    /* font-family:cursive; */
 }
 
 .btn {
@@ -49,6 +50,8 @@ hr {
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
     color: black;
+    /* font-family:cursive; */
+    font-weight: bold;
 }
 
 .btn:hover {
@@ -63,8 +66,11 @@ hr {
     background-color: white;
     color: black;
     border: none;
-    font-size: 18px;
+    font-size: 16px;
     outline: none;
+    border-radius: 5px;
+    /* font-family:cursive; */
+    font-weight: bold;
 }
 
 .box select:hover {
@@ -82,4 +88,49 @@ hr {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.ref {
+    display: flex;
+    justify-content: center;
+}
+
+.star {
+    width: 20px;
+    background-color: none;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.starRef {
+    color: white;
+    margin-left: 50px;
+    margin-right: 50px;
+    /* font-family:cursive; */
+}
+
+.pub {
+    color: rgba(255, 181, 43, 0.616);
+    font-family:cursive;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    margin-right: 50px;
+    margin-top: -20px;
+}
+
+.pub2 {
+    color: rgba(255, 181, 43, 0.616);
+    font-family:cursive;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    margin-right: 50px;
+    margin-top: -75px;
+}
+
+.load {
+    color: white;
+    padding: 100px;
+    /* font-family:cursive; */
 }

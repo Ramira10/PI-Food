@@ -12,6 +12,7 @@
 
 .title {
     color: white;
+    /* font-family: cursive; */
 }
 
 .form {
@@ -27,6 +28,7 @@
     justify-content: center;
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0.423);
+    /* font-family: cursive; */
 }
 
 
@@ -71,6 +73,8 @@
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
     color: black;
+    /* font-family: cursive; */
+    font-weight: bold;
 }
 
 .btn1:hover {
@@ -87,6 +91,8 @@
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
     color: black;
+    /* font-family: cursive; */
+    font-weight: bold;
 }
 
 .btn2:hover {

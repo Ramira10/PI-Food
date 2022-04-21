@@ -43,7 +43,7 @@ const Details = (props) => {
                         )
                     })}
                 </div> :
-                <h5 className={style.notFound}>Dish Type not found.</h5>
+                <h5 className={style.notFound}>This recipe has no dish type.</h5>
             }
 
 
@@ -65,7 +65,7 @@ const Details = (props) => {
                 }
             </div>
                 :
-                <h5 className={style.notFound}>Diet Type not found.</h5>
+                <h5 className={style.notFound}>This recipe has no diet type.</h5>
             }
 
             
