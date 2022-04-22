@@ -14,7 +14,7 @@ body {
     z-index: -1;
 }
 
-.overlay{
+.overlay {
     position: fixed;
     min-width: 100%;
     min-height: 100%;
@@ -27,7 +27,7 @@ body {
     background: rgba(0, 0, 0, 0.575);
 }
 
-.absolute{
+.absolute {
     width: 100%;
     height: 100%;
     top: -15%;
@@ -43,11 +43,11 @@ body {
     font-size: 80px;
     font-weight: 900;
     z-index: 100;
-    color:#fff;
+    color: #fff;
     margin-bottom: 30px;
 }
 
-.text::after{
+.text::after {
     display: block;
     width: 30%;
     height: 10px;
@@ -74,15 +74,17 @@ body {
 }
 
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 800px) {
     .text {
         font-size: 50px;
     }
-    .imag{
+
+    .imag {
         height: 120px;
         width: 120px;
         top: 50%;
     }
+
     .imag:hover {
         height: 128px;
         width: 128px;
@@ -90,20 +92,22 @@ body {
     }
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 500px) {
     .text {
         font-size: 30px;
         margin-bottom: 0;
     }
 
-    .text::after{
+    .text::after {
         height: 5px;
     }
-    .imag{
+
+    .imag {
         height: 100px;
         width: 100px;
         top: 50%;
     }
+
     .imag:hover {
         height: 108px;
         width: 108px;

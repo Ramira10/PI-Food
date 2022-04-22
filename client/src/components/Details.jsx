@@ -54,7 +54,7 @@ const Details = (props) => {
                     details.diets?.map(d => {
                         if(d.hasOwnProperty('name')) {
                             return (
-                                <p key={d}>- {d.name[0].toUpperCase() + d.name.slice(1)} </p>
+                                <p key={d.name}>- {d.name[0].toUpperCase() + d.name.slice(1)} </p>
                             )
                         } else {
                             return (
@@ -73,7 +73,7 @@ const Details = (props) => {
             {details.summary ? 
             <div>
                 <h3 className={style.title}>Summary: </h3>
-                <p className={style.area}>{details.summary?.replace(/<[^>]*>/g, '')}</p>
+                <p className={style.area1}>{details.summary?.replace(/<[^>]*>/g, '')}</p>
             </div> :
                 <h5 className={style.notFound}>This recipe does not have summary.</h5>
             }
@@ -93,10 +93,10 @@ const Details = (props) => {
                     <h3 className={style.title}>Steps: </h3>
                     <ul>{Array.isArray(details.steps) ? details.steps.map(s => {
                         return (
-                            <p className={style.area} key={s.number}> {s.number}: {s.step}</p>
+                            <p className={style.area2} key={s.number}>{s.number}: {s.step}</p>
                         )
                     }) :
-                        <p className={style.area}>{details.steps}</p>
+                        <p className={style.area2}>{details.steps}</p>
                     } </ul>
                 </div> :
                 <h5 className={style.notFound}>This recipe does not have step by step</h5>

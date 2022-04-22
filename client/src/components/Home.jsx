@@ -70,7 +70,7 @@ function Home(props) {
 
 
     return (
-        <div className={style.home}>
+        <div>
             {/* SearchBar */}
             <SearchBar />
             <hr></hr>
@@ -93,7 +93,7 @@ function Home(props) {
                 {/* FILTRADO POR TIPO DE DIETA */}
                 <div className={style.box}>
                     {/* <label className={style.text}>Filter by type of diet: </label> */}
-                    <select name="diets" onChange={e => handleFilterByTypeDiet(e)}>
+                    <select defaultValue={'all'} name="diets" onChange={e => handleFilterByTypeDiet(e)}>
                         {/* <option disabled selected>Filter by type of diet</option> */}
                         <option value="all">Filter by type of diet</option>
                         <option value="gluten free">Gluten Free</option>
@@ -115,8 +115,8 @@ function Home(props) {
                 {/* ORDEN ALFABÉTICO  */}
                 <div className={style.box}>
                     {/* <label className={style.text}>Order alphabetically: </label> */}
-                    <select name="alphabetical" onChange={e => handleOrderByAlphabet(e)}>
-                        <option disabled selected>Order alphabetically</option>
+                    <select defaultValue={'DEFAULT'} name="alphabetical" onChange={e => handleOrderByAlphabet(e)}>
+                        <option value="DEFAULT" disabled>Order alphabetically</option>
                         <option value="atoz">A to Z</option>
                         <option value="ztoa">Z to A</option>
                     </select>
@@ -125,8 +125,8 @@ function Home(props) {
                 {/* ORDEN DE MIN A MAX - MAX A MIN  */}
                 <div className={style.box}>
                     {/* <label className={style.text}>Order by Score: </label> */}
-                    <select name="numerical" onChange={e => handleOrderByScore(e)}>
-                        <option disabled selected>Order by Score</option>
+                    <select defaultValue={'DEFAULT'} name="numerical" onChange={e => handleOrderByScore(e)}>
+                        <option value="DEFAULT" disabled>Order by Score</option>
                         <option value="asc">Min to Max</option>
                         <option value="desc">Max to Min</option>
                     </select>

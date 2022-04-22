@@ -105,7 +105,7 @@ function CreateRecipe(props) {
 
         if (Object.keys(errors).length === 0 && input.name !== "" && input.summary !== "") {
             input.diets.push(input.diet.toLowerCase());
-            console.log(input)
+            // console.log(input)
             props.createRecipe(input);
             setInput({
                 name: "",
