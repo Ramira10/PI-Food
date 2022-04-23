@@ -102,3 +102,10 @@
     width: 110px;
     transition: 0.2s;
 }
+
+.list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+}

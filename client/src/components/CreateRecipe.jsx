@@ -81,7 +81,7 @@ function CreateRecipe(props) {
 
     useEffect(() => {
         props.getDiets()
-        if (props.diets.length < 12) {
+        if (props.diets.length < 13) {
             props.getDiets()
         }
         // La siguiente línea es para quitar un warning molesto de la consola.
@@ -104,7 +104,9 @@ function CreateRecipe(props) {
         e.preventDefault();
 
         if (Object.keys(errors).length === 0 && input.name !== "" && input.summary !== "") {
-            input.diets.push(input.diet.toLowerCase());
+            if(input.diet){
+                input.diets.push(input.diet.toLowerCase());
+            }
             // console.log(input)
             props.createRecipe(input);
             setInput({
@@ -242,9 +244,9 @@ function CreateRecipe(props) {
                 <div>
                     <div className={style.txt}><label>Types of diet: </label></div>
                     <br></br>
-                    {props.diets.map(d => {
+                    {props.diets.slice(0,13).map(d => {
                         return (
-                            <div key={d} >
+                            <div key={d} className={style.list}>
                                 <label> {d[0].toUpperCase() + d.slice(1)}</label>
                                 <input type="checkbox" name={d} value={d} selected={input.diets.includes(d)} onChange={e => handleCheck(e)} />
                             </div>

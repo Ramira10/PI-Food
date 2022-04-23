@@ -6,7 +6,7 @@ const { API_KEY, URL_SPOONACULAR } = process.env;
 const get_ApiID = async (id) => {
     const apiID = await axios.get(`${URL_SPOONACULAR}/recipes/${id}/information?apiKey=${API_KEY}`)
     const detail = apiID.data;
-    // if(detail.id){
+   
     let recipeDetail = {
         id,
         name: detail.title,
@@ -22,9 +22,8 @@ const get_ApiID = async (id) => {
         }),
         dish: detail.dishTypes,
         diets: detail.diets,
-        // dishTypes: detail.dishTypes,
     }
-    // }
+    
     return recipeDetail;
 
 }

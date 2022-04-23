@@ -26,13 +26,24 @@ router.post('/', async (req, res, next) => {
             }
         })
         newRecipe.addDiet(dietDB);
-        const newDiet = await Diet.create({name: diets.pop()})
-        newRecipe.addDiet(newDiet);
 
-        // console.log(newDiet);
-        
-
+        var aux = diets.pop();
+        var validate = types.includes(aux)
+        if(!validate) {
+            var noRepeat = Diet.findAll({
+                where: {
+                    name: aux
+                }
+            })
+            if(!noRepeat.length){
+                const newDiet = await Diet.create({name: aux})
+                newRecipe.addDiet(newDiet);
+                types.push(aux);
+            }     
+        }
         res.status(200).send(newRecipe);
+        // console.log(newDiet);
+
     } catch (err) {
         next(err);
     }

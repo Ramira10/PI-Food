@@ -18,8 +18,7 @@ const router = Router();
 router.get('/', async (req, res, next) => {
     const { name } = req.query;
     try {
-        let AllRecipes = await get_AllRecipes(); // Me devuelve un arreglo concatenado con las respuestas encontradas en
-        // la base de datos y en la API.
+        let AllRecipes = await get_AllRecipes();
 
         if (name) {
             let recipeByName = await AllRecipes.filter(r => r.name.toLowerCase().includes(name.toString().toLowerCase())); // Utilizo LowerCase para evitar problemas con la comparación.
@@ -79,7 +78,6 @@ router.get('/:id', async (req, res, next) => {
             return res.status(200).send(recipeAPI);
         }
     } catch (err) {
-        console.log("Error: ")
         next(err);
     }
 });
