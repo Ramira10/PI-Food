@@ -27,10 +27,10 @@ function Home(props) {
 
     // Lógica para mostrar 9 recetas por página
     const [page, setPage] = useState(1);
-    const [recipesPage, /* setRecipesPage */] = useState(9);
-    const quantityRecipes = page * recipesPage;
-    const firstRecipe = quantityRecipes - recipesPage;
-    const showRecipes = props.showedRecipes.slice(firstRecipe, quantityRecipes);
+    const recipesPage = 9;
+    const numberOfRecipes = page * recipesPage;
+    const firstRecipe = numberOfRecipes - recipesPage;
+    const showRecipes = props.showedRecipes.slice(firstRecipe, numberOfRecipes);
 
     const paged = function (pageNumber) {
         setPage(pageNumber)
@@ -136,6 +136,7 @@ function Home(props) {
 
             <hr></hr>
 
+            {/* REFERENCIAS PARA ENTENDER LAS ESTRELLAS */}
             <div className={style.ref}>
                 <div>
                     <p className={style.starRef}>Score</p>

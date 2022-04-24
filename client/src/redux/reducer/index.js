@@ -38,7 +38,7 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
             };
 
-        case "FILTER_BY_TYPE_DIET": // FILTRO RECETAS EN BASE AL TIPO DE DIETA 
+        case "FILTER_BY_TYPE_DIET": 
             const all = state.allRecipes;
             const filter = action.payload === 'all' ? all : all.filter(r => r.diets.find(d => d.name === action.payload || d === action.payload))
             return {
@@ -46,7 +46,7 @@ export default function rootReducer(state = initialState, action) {
                 showedRecipes: filter
             }
 
-        case "ORDER_BY_ALPHABET": // PASAR A IF Y PROBAR
+        case "ORDER_BY_ALPHABET": 
             let sortByAlphabet = [...state.showedRecipes];
             sortByAlphabet = action.payload === 'atoz' ?
                 state.showedRecipes.sort(function (a, b) {

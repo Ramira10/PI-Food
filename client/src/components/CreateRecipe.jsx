@@ -15,7 +15,7 @@ let validURL = (str) => {
         '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
     return !!pattern.test(str);
 }
-
+// Funcion para validar el nombre. (Solo caracteres a-z A-Z)
 let validName = (str) => {
     let pattern = /^[a-zA-Z\s]+$/;
     return pattern.test(str);
