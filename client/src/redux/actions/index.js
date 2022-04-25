@@ -23,7 +23,7 @@ export function getRecipeByName(name) {
                 payload: response.data
             })
         } catch (err) {
-            console.log(err);
+            alert("Recipe not found.")
         }
     }
 }
