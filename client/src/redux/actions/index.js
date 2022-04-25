@@ -1,29 +1,17 @@
 import axios from 'axios';
 
 export function getRecipes() {
-    return function(dispatch) {
-        axios.get(`http://localhost:3001/recipes`)
-        .then((response) => {
+    return async(dispatch) => {
+        try{
+            const response = await axios.get(`http://localhost:3001/recipes`);
             return dispatch({
                 type: 'GET_RECIPES',
                 payload: response.data,
-            })
-        })
-        .catch(err => {
+            });
+        } catch (err) {
             console.log(err);
-        })
+        }
     }
-    // return async(dispatch) => {
-    //     try{
-    //         const json = await axios.get(`http://localhost:3001/recipes`);
-    //         return dispatch({
-    //             type: 'GET_RECIPES',
-    //             payload: response.data,
-    //         });
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // }
 };
 
 export function getRecipeByName(name) {
@@ -39,20 +27,6 @@ export function getRecipeByName(name) {
         }
     }
 }
-
-// export function getRecipeByID(id) {
-//     return async function(dispatch) {
-//         try {
-//             const response = await axios.get(`http://localhost:3001/recipes/${id}`)
-//             return dispatch({
-//                 type: "GET_RECIPE_BY_ID",
-//                 payload: response.data
-//             });
-//         } catch (err) {
-//             console.log(err);
-//         }
-//     }
-// }
 
 export function getRecipeDetails(payload) {
     return async function(dispatch) {
@@ -86,7 +60,6 @@ export function createRecipe(payload) {
     return async function(dispatch) {
         try {
             var response = await axios.post(`http://localhost:3001/recipe`, payload);
-            // return response;
             return dispatch({
                 type: "CREATE_RECIPE",
                 payload: response,
@@ -119,7 +92,3 @@ export function orderByScore(payload) {
         payload
     }
 }
-
-// GUARDAR EN VARIABLES LOS TIPOS
-// TAMBIÉN SE PUEDE GUARDAR EN VARIABLE EL URL
-// PROBAR VARIANTES ENTRE ASYNC Y PROMISES
