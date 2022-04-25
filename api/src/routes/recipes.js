@@ -1,15 +1,9 @@
 const { Router } = require('express');
-const axios = require('axios');
 const {
     get_AllRecipes,
-    get_DataBase,
-    get_Api,
     get_DataBaseID,
     get_ApiID,
 } = require('../controllers/recipe');
-const { Recipe, Diet } = require('../db');
-const { API_KEY, URL_SPOONACULAR } = process.env;
-
 const router = Router();
 
 // GET /recipes?name="...":
@@ -59,8 +53,6 @@ router.get('/', async (req, res, next) => {
         next(err);
     }
 });
-
-
 
 // GET /recipes/{idReceta}:
 // Obtener el detalle de una receta en particular

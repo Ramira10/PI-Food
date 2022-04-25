@@ -16,8 +16,8 @@ router.get('/', async(req, res, next) => {
                 }
             })
         });
-        const dietTypes = await Diet.findAll();
-        res.send(dietTypes);
+        const diets = await Diet.findAll();
+        res.send(diets);
     } catch (err) {
         next(err);
     }

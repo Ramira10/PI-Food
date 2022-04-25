@@ -18,11 +18,9 @@ router.post('/', async (req, res, next) => {
             steps,
         })
 
-        // console.log(diets)
-        
         let dietDB = await Diet.findAll({
             where: {
-                name: diets/* .map(d => d) */
+                name: diets
             }
         })
         newRecipe.addDiet(dietDB);
@@ -42,7 +40,6 @@ router.post('/', async (req, res, next) => {
             }     
         }
         res.status(200).send(newRecipe);
-        // console.log(newDiet);
 
     } catch (err) {
         next(err);
