@@ -6,10 +6,8 @@ body {
     position: fixed;
     min-width: 100%;
     min-height: 100%;
-
     top: 50%;
     left: 50%;
-
     transform: translateX(-50%) translateY(-50%);
     z-index: -1;
 }
@@ -18,10 +16,8 @@ body {
     position: fixed;
     min-width: 100%;
     min-height: 100%;
-
     top: 50%;
     left: 50%;
-
     transform: translateX(-50%) translateY(-50%);
     z-index: -1;
     background: rgba(0, 0, 0, 0.575);
@@ -31,7 +27,6 @@ body {
     width: 100%;
     height: 700px;
     right: 0;
-    position: absolute;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -56,14 +51,10 @@ body {
 }
 
 .imag {
-    position: fixed;
     height: 150px;
     width: 150px;
-
-    top: 55%;
-    left: 50%;
-
-    transform: translateX(-50%) translateY(-50%);
+    position: relative;
+    top: -270px
 }
 
 .imag:hover {
@@ -81,7 +72,7 @@ body {
     .imag {
         height: 120px;
         width: 120px;
-        top: 50%;
+        
     }
 
     .imag:hover {
@@ -104,7 +95,7 @@ body {
     .imag {
         height: 100px;
         width: 100px;
-        top: 50%;
+        
     }
 
     .imag:hover {
