@@ -81,9 +81,6 @@ function CreateRecipe(props) {
 
     useEffect(() => {
         props.getDiets()
-        if (props.diets.length < 13) {
-            props.getDiets()
-        }
         // La siguiente línea es para quitar un warning molesto de la consola.
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);

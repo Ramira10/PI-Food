@@ -9,8 +9,8 @@ const router = Router();
 // la base de datos con los tipos de datos indicados por spoonacular.
 router.get('/', async(req, res, next) => {
     try {
-        types.forEach(n => {
-            Diet.findOrCreate({
+        types.forEach(async n => {
+           await Diet.findOrCreate({
                 where: {
                     name: n
                 }
