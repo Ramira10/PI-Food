@@ -29,3 +29,20 @@
     width: 20px;
     background-color: none;
 }
+
+@media screen and (max-width: 500px) {
+    .name {
+        width: 300px;
+        font-size: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .img {
+        margin-bottom: 20px;
+        height: 220px;
+        width: 360px;
+        border-radius: 50px;
+    }
+}

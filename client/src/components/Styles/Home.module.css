@@ -243,3 +243,47 @@ hr {
         color: white;
     }
 }
+
+@media screen and (max-width: 400px) {
+    .btn {
+        height: 15px;
+        width: 40px;
+        border-radius: 8px;
+        background-color: rgb(255, 255, 255);
+        color: black;
+        /* font-family:cursive; */
+        font-weight: bold;
+        font-size: 6px;
+    }
+
+    .btn:hover {
+        background-color: rgb(80, 80, 80);
+        color: white;
+        transition: 0.2s;
+        height: 15px;
+        width: 40px;
+    }
+
+    .box select {
+        background-color: white;
+        color: black;
+        border: none;
+        font-size: 7px;
+        outline: none;
+        border-radius: 2px;
+    }
+
+    .box select:hover {
+        color: white;
+        background-color: rgb(80, 80, 80);
+        transition: 0.5s;
+    }
+
+    .btnYfilt {
+        padding: 10px;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        color: white;
+    }
+}

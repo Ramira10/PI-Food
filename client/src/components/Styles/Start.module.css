@@ -54,13 +54,13 @@ body {
     height: 150px;
     width: 150px;
     position: relative;
-    top: -270px
+    top: -250px
 }
 
 .imag:hover {
     height: 165px;
     width: 165px;
-    transition: all 0.5s ease-out;
+    transition: all 0.3s ease-out;
 }
 
 
@@ -78,7 +78,22 @@ body {
     .imag:hover {
         height: 128px;
         width: 128px;
-        transition: all 0.5s ease-out;
+        transition: all 0.3s ease-out;
+    }
+}
+@media screen and (max-height: 800px) {
+    .text {
+        position: relative;
+        top: -90px
+    }
+
+    .imag {
+        position: relative;
+        top: -350px
+    }
+
+    .imag:hover {
+        transition: all 0.3s ease-out;
     }
 }
 
@@ -101,6 +116,22 @@ body {
     .imag:hover {
         height: 108px;
         width: 108px;
-        transition: all 0.5s ease-out;
+        transition: all 0.3s ease-out;
+    }
+}
+
+@media screen and (max-height: 500px) {
+    .text {
+        position: relative;
+        top: -180px
+    }
+
+    .imag {
+        position: relative;
+        top: -480px
+    }
+
+    .imag:hover {
+        transition: all 0.3s ease-out;
     }
 }

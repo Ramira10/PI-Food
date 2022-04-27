@@ -39,3 +39,15 @@
         /* font-family:cursive; */
     }
 }
+
+@media screen and (max-width: 400px) {
+    .btn {
+        color: white;
+        border: none;
+        background-color: black;
+        font-size: 10px;
+        margin: 1px;
+        border-radius: 1px;
+        /* font-family:cursive; */
+    }
+}
