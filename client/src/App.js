@@ -35,6 +35,17 @@ function App() {
       </div>
     </BrowserRouter>
 
+    // OPCIÓN NORMAL, SIN TRANSICIONES:
+    // <BrowserRouter>
+    //   <div className='App'>
+    //     <Switch>
+    //       <Route exact path={'/' } component={Start}></Route>
+    //       <Route path={'/home'} exact component={Home}></Route>
+    //       <Route path={"/home/:id"} component={Details}></Route>
+    //       <Route path={"/recipe"} component={CreateRecipe}></Route>
+    //     </Switch>
+    //   </div>
+    // </BrowserRouter>
   );
 }
 
