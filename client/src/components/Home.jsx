@@ -177,7 +177,7 @@ function Home(props) {
                 {
                     props.showedRecipes.length > 9 ?
                         <div className={style.pag}>
-                            <Paginated recipesPage={recipesPage} showedRecipes={props.showedRecipes.length} paged={paged}></Paginated>
+                            <Paginated recipesPage={recipesPage} showedRecipes={props.showedRecipes.length} paged={paged} setPage={setPage} page={page}></Paginated>
                             <span className={style.actual}> {page} of {Math.ceil(props.showedRecipes.length / recipesPage)} </span>
                         </div> :
                         <div><span className={style.actual}> {page} of {Math.ceil(props.showedRecipes.length / recipesPage)} </span></div>
