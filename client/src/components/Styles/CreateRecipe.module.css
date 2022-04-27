@@ -12,12 +12,9 @@
 
 .title {
     color: white;
-    /* font-family: cursive; */
 }
 
 .form {
-    /* background-color: rgb(255, 255, 255); */
-    /* border-radius: 20px; */
     color: white;
     padding-left: 50px;
     padding-right: 50px;
@@ -28,7 +25,6 @@
     justify-content: center;
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0.423);
-    /* font-family: cursive; */
 }
 
 
@@ -73,7 +69,6 @@
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
     color: black;
-    /* font-family: cursive; */
     font-weight: bold;
 }
 
@@ -91,7 +86,6 @@
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
     color: black;
-    /* font-family: cursive; */
     font-weight: bold;
 }
 

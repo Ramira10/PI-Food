@@ -1,120 +1,118 @@
 import React from "react";
 import { getRecipeDetails } from "../redux/actions";
 import { Link } from 'react-router-dom';
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import style from "./Styles/Details.module.css"
 
 
 class Details extends React.Component {
 
-    componentDidMount(){
+    componentDidMount() {
         this.props.getRecipeDetails(this.props.match.params.id);
     }
-    
+
     render() {
         const { recipeDetails } = this.props
         return (
             <div className={style.div} key={this.props.match.params.id}>
 
-            {recipeDetails.name ? 
-            <div>
+                {recipeDetails.name ?
+                    <div>
 
-            {/* NOMBRE */}
-            <div className={style.title}>
-            <h1>{recipeDetails.name}</h1>
-            </div>
-            
-            {/* IMAGEN */}
-            <div>
-                {
-                    recipeDetails.image ?  <img className={style.img} src={recipeDetails.image} alt="Img Not Found."></img>
-                    :
-                    <img className={style.img} src={"https://agencias.assist1.com.co/assets/images/no-image.png"} alt="Img Not Found."></img>
-                }
-            </div>
+                        {/* NOMBRE */}
+                        <div className={style.title}>
+                            <h1>{recipeDetails.name}</h1>
+                        </div>
 
-            {/* TIPO DE PLATO */}
-            {recipeDetails.dish ?
-                <div>
-                    <h3  className={style.title}>Dish Type: </h3>
-                    {recipeDetails.dish?.map(d => {
-                        return (
-                            <p key={d}>- {d[0].toUpperCase() + d.slice(1)} </p>
-                            )
-                        })}
-                </div> :
-                <h5 className={style.notFound}>This recipe has no dish type.</h5>
-            }
+                        {/* IMAGEN */}
+                        <div>
+                            {
+                                recipeDetails.image ? <img className={style.img} src={recipeDetails.image} alt="Img Not Found."></img>
+                                    :
+                                    <img className={style.img} src={"https://agencias.assist1.com.co/assets/images/no-image.png"} alt="Img Not Found."></img>
+                            }
+                        </div>
 
-            {/* DIETAS */}
-            {recipeDetails.diets ?
-                <div>
-                <h3  className={style.title}>Types of diets: </h3>
-                {
-                    recipeDetails.diets?.map(d => {
-                        if(d.hasOwnProperty('name')) {
-                            return (
-                                <p key={d.name}>- {d.name[0].toUpperCase() + d.name.slice(1)} </p>
-                                )
-                            } else {
-                                return (
-                                    <p key={d}>- {d[0].toUpperCase() + d.slice(1)} </p>
+                        {/* TIPO DE PLATO */}
+                        {recipeDetails.dish ?
+                            <div>
+                                <h3 className={style.title}>Dish Type: </h3>
+                                {recipeDetails.dish?.map(d => {
+                                    return (
+                                        <p key={d}>- {d[0].toUpperCase() + d.slice(1)} </p>
                                     )
-                                }
-                            })
+                                })}
+                            </div> :
+                            <h5 className={style.notFound}>This recipe has no dish type.</h5>
                         }
-            </div>
-                :
-                <h5 className={style.notFound}>This recipe has no diet type.</h5>
-            }
 
-            
-            {/* RESUMEN */}
-            {recipeDetails.summary ? 
-            <div>
-                <h3 className={style.title}>Summary: </h3>
-                <p className={style.area1}>{recipeDetails.summary?.replace(/<[^>]*>/g, '')}</p>
-            </div> :
-                <h5 className={style.notFound}>This recipe does not have summary.</h5>
-            }
+                        {/* DIETAS */}
+                        {recipeDetails.diets ?
+                            <div>
+                                <h3 className={style.title}>Types of diets: </h3>
+                                {
+                                    recipeDetails.diets?.map(d => {
+                                        if (d.hasOwnProperty('name')) {
+                                            return (
+                                                <p key={d.name}>- {d.name[0].toUpperCase() + d.name.slice(1)} </p>
+                                            )
+                                        } else {
+                                            return (
+                                                <p key={d}>- {d[0].toUpperCase() + d.slice(1)} </p>
+                                            )
+                                        }
+                                    })
+                                }
+                            </div>
+                            :
+                            <h5 className={style.notFound}>This recipe has no diet type.</h5>
+                        }
 
-            {recipeDetails.score ? 
-            <div>
-                <h3  className={style.title}>Score:</h3>
-                <p>{recipeDetails.score}</p>
-                <h3  className={style.health}>Health Score: </h3>
-                <p>{recipeDetails.healthScore}</p>
-            </div> :
-                <h5 className={style.notFound}>This recipe does not have score.</h5>
-            }
+                        {/* RESUMEN */}
+                        {recipeDetails.summary ?
+                            <div>
+                                <h3 className={style.title}>Summary: </h3>
+                                <p className={style.area1}>{recipeDetails.summary?.replace(/<[^>]*>/g, '')}</p>
+                            </div> :
+                            <h5 className={style.notFound}>This recipe does not have summary.</h5>
+                        }
 
-            {/* PASO A PASO */}
-            {recipeDetails.steps ?
+                        {recipeDetails.score ?
+                            <div>
+                                <h3 className={style.title}>Score:</h3>
+                                <p>{recipeDetails.score}</p>
+                                <h3 className={style.health}>Health Score: </h3>
+                                <p>{recipeDetails.healthScore}</p>
+                            </div> :
+                            <h5 className={style.notFound}>This recipe does not have score.</h5>
+                        }
+
+                        {/* PASO A PASO */}
+                        {recipeDetails.steps ?
+                            <div>
+                                <h3 className={style.title}>Steps: </h3>
+                                <ul>{Array.isArray(recipeDetails.steps) ? recipeDetails.steps.map(s => {
+                                    return (
+                                        <p className={style.area2} key={s.number}>{s.number}: {s.step}</p>
+                                    )
+                                }) :
+                                    <p className={style.area2}>{recipeDetails.steps}</p>
+                                } </ul>
+                            </div> :
+                            <h5 className={style.notFound}>This recipe does not have step by step</h5>
+                        }
+
+                    </div> : <h1>Loading...</h1>
+                }
+
                 <div>
-                    <h3 className={style.title}>Steps: </h3>
-                    <ul>{Array.isArray(recipeDetails.steps) ? recipeDetails.steps.map(s => {
-                        return (
-                            <p className={style.area2} key={s.number}>{s.number}: {s.step}</p>
-                            )
-                        }) :
-                        <p className={style.area2}>{recipeDetails.steps}</p>
-                    } </ul>
-                </div> :
-                <h5 className={style.notFound}>This recipe does not have step by step</h5>
-            }
+                    <Link to="/home"> <button className={style.btn}>HOME</button> </Link>
+                </div>
 
-        </div>: <h1>Loading...</h1>
-         }
-
-            <div>
-            <Link to="/home"> <button className={style.btn}>HOME</button> </Link>
             </div>
-
-        </div>
         )
     }
 }
-
 
 function mapStateToProps(state) {
     return {
@@ -128,4 +126,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Details);
+export default connect(mapStateToProps, mapDispatchToProps)(Details);

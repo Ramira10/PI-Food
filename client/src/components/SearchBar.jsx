@@ -22,7 +22,6 @@ export default function SearchBar() {
         setInput("")
     }
 
-
     return (
         <div className={style.general}>
             <div className={style.title}>

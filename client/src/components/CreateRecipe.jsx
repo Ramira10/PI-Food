@@ -61,7 +61,6 @@ let validate = (input) => {
     }
 
     return errors;
-
 }
 
 function CreateRecipe(props) {
@@ -101,7 +100,7 @@ function CreateRecipe(props) {
         e.preventDefault();
 
         if (Object.keys(errors).length === 0 && input.name !== "" && input.summary !== "") {
-            if(input.diet){
+            if (input.diet) {
                 input.diets.push(input.diet.toLowerCase());
             }
             // console.log(input)
@@ -120,7 +119,6 @@ function CreateRecipe(props) {
         } else {
             alert("Check the fields.")
         }
-
     }
 
     let handleCheck = (e) => {
@@ -143,7 +141,6 @@ function CreateRecipe(props) {
 
     return (
         <div>
-
             <div className={style.enc}>
 
                 <div>
@@ -158,8 +155,6 @@ function CreateRecipe(props) {
 
             </div>
 
-
-
             <form className={style.form} onSubmit={handleSubmit}>
 
                 <div className={style.div1}>
@@ -172,7 +167,6 @@ function CreateRecipe(props) {
                     ></input>
                     {!errors.name ? null : <p className={style.err}>{errors.name}</p>}
                 </div>
-
 
                 <div>
                     <div className={style.txt}><label>Summary: </label></div>
@@ -198,7 +192,6 @@ function CreateRecipe(props) {
                     {!errors.score ? null : <p className={style.err}>{errors.score}</p>}
                 </div>
 
-
                 <div>
                     <div className={style.txt}><label>Health Score: </label></div>
                     <input
@@ -210,7 +203,6 @@ function CreateRecipe(props) {
                     ></input>
                     {!errors.healthScore ? null : <p className={style.err}>{errors.healthScore}</p>}
                 </div>
-
 
                 <div>
                     <div className={style.txt}><label>URL Image: </label></div>
@@ -224,7 +216,6 @@ function CreateRecipe(props) {
                     {!errors.image ? null : <p className={style.err}>{errors.image}</p>}
                 </div>
 
-
                 <div>
                     <div className={style.txt}><label>Steps: </label></div>
                     <textarea
@@ -237,11 +228,10 @@ function CreateRecipe(props) {
                     {!errors.steps ? null : <p className={style.err}>{errors.steps}</p>}
                 </div>
 
-
                 <div>
                     <div className={style.txt}><label>Types of diet: </label></div>
                     <br></br>
-                    {props.diets.slice(0,13).map(d => {
+                    {props.diets.slice(0, 13).map(d => {
                         return (
                             <div key={d} className={style.list}>
                                 <label> {d[0].toUpperCase() + d.slice(1)}</label>
@@ -262,8 +252,6 @@ function CreateRecipe(props) {
                     {!errors.diet ? null : <p className={style.err}>{errors.diet}</p>}
                 </div>
 
-
-
                 <br></br>
                 <div>
                     <button className={style.btn1} type="submit" >CREATE</button>
@@ -275,7 +263,6 @@ function CreateRecipe(props) {
                 <br></br>
 
             </form>
-
 
         </div>
     )

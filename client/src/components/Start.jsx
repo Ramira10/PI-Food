@@ -7,11 +7,6 @@ import { Link } from "react-router-dom"
 
 export default class Start extends Component {
 
-    // constructor(props) {
-    //     super(props);
-
-    // }
-
     render() {
         return (
             <div>
@@ -32,8 +27,6 @@ export default class Start extends Component {
                 </div>
 
             </div>
-
-
         )
     }
 }

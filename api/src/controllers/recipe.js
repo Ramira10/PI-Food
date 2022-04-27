@@ -2,7 +2,6 @@ const axios = require("axios");
 const { Diet, Recipe } = require("../db");
 const { API_KEY, URL_SPOONACULAR } = process.env;
 
-// RE-VER
 const get_ApiID = async (id) => {
     const apiID = await axios.get(`${URL_SPOONACULAR}/recipes/${id}/information?apiKey=${API_KEY}`)
     const detail = apiID.data;

@@ -7,7 +7,6 @@ const recipes = require('./recipes.js');
 const diet = require('./diet.js');
 
 
-
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 router.use('/recipe', recipe);

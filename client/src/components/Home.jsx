@@ -5,13 +5,9 @@ import SearchBar from "./SearchBar";
 import Paginated from "./Paginated";
 import style from "./Styles/Home.module.css"
 import { useState, useEffect } from "react";
-import { connect, /* useDispatch */ /* useSelector */ } from "react-redux";
+import { connect } from "react-redux";
 import {
     getRecipes,
-    // getRecipeByName,
-    // getRecipeDetails,
-    // getDiets,
-    // addRecipe,
     filterByTypeDiet,
     orderByAlphabet,
     orderByScore
@@ -68,13 +64,11 @@ function Home(props) {
         setOrder(`Order ${e.target.value}`);
     }
 
-
     return (
         <div>
             {/* SearchBar */}
             <SearchBar />
             <hr></hr>
-
 
             <div className={style.btnYfilt}>
 
@@ -92,9 +86,7 @@ function Home(props) {
 
                 {/* FILTRADO POR TIPO DE DIETA */}
                 <div className={style.box}>
-                    {/* <label className={style.text}>Filter by type of diet: </label> */}
                     <select defaultValue={'all'} name="diets" onChange={e => handleFilterByTypeDiet(e)}>
-                        {/* <option disabled selected>Filter by type of diet</option> */}
                         <option value="all">Filter by type of diet</option>
                         <option value="gluten free">Gluten Free</option>
                         <option value="ketogenic">Ketogenic</option>
@@ -114,7 +106,6 @@ function Home(props) {
 
                 {/* ORDEN ALFABÉTICO  */}
                 <div className={style.box}>
-                    {/* <label className={style.text}>Order alphabetically: </label> */}
                     <select defaultValue={'DEFAULT'} name="alphabetical" onChange={e => handleOrderByAlphabet(e)}>
                         <option value="DEFAULT" disabled>Order alphabetically</option>
                         <option value="atoz">A to Z</option>
@@ -124,7 +115,6 @@ function Home(props) {
 
                 {/* ORDEN DE MIN A MAX - MAX A MIN  */}
                 <div className={style.box}>
-                    {/* <label className={style.text}>Order by Score: </label> */}
                     <select defaultValue={'DEFAULT'} name="numerical" onChange={e => handleOrderByScore(e)}>
                         <option value="DEFAULT" disabled>Order by Score</option>
                         <option value="asc">Min to Max</option>
@@ -151,27 +141,27 @@ function Home(props) {
             <br></br>
 
             {props.showedRecipes.length === 0 ?
-            <div className={style.load}>
-                <h5>Loading...</h5>
-            </div> :
+                <div className={style.load}>
+                    <h5>Loading...</h5>
+                </div> :
                 <div className={style.recipes}>
-            {
-                showRecipes?.map(e => {
-                    return (
-                        <div className={style.recipe} key={prevId++}>
-                            <Recipe
-                                image={e.image}
-                                name={e.name}
-                                score={e.score}
-                                healthScore={e.healthScore}
-                                diets={e.diets}
-                                id={e.id}
-                            ></Recipe>
+                    {
+                        showRecipes?.map(e => {
+                            return (
+                                <div className={style.recipe} key={prevId++}>
+                                    <Recipe
+                                        image={e.image}
+                                        name={e.name}
+                                        score={e.score}
+                                        healthScore={e.healthScore}
+                                        diets={e.diets}
+                                        id={e.id}
+                                    ></Recipe>
 
-                        </div>
-                    )
-                })
-            }
+                                </div>
+                            )
+                        })
+                    }
                 </div>
             }
 
@@ -182,27 +172,24 @@ function Home(props) {
 
             <hr></hr>
 
+            <div className={style.pag}>
 
-<div className={style.pag}>
-
-            {
-                props.showedRecipes.length > 9 ?
-                <div className={style.pag}>
-                        <Paginated recipesPage={recipesPage} showedRecipes={props.showedRecipes.length} paged={paged}></Paginated>
-                        <span className={style.actual}> {page} of {Math.ceil(props.showedRecipes.length / recipesPage)} </span>
-                    </div> :
-                    <div><span className={style.actual}> {page} of {Math.ceil(props.showedRecipes.length / recipesPage)} </span></div>
+                {
+                    props.showedRecipes.length > 9 ?
+                        <div className={style.pag}>
+                            <Paginated recipesPage={recipesPage} showedRecipes={props.showedRecipes.length} paged={paged}></Paginated>
+                            <span className={style.actual}> {page} of {Math.ceil(props.showedRecipes.length / recipesPage)} </span>
+                        </div> :
+                        <div><span className={style.actual}> {page} of {Math.ceil(props.showedRecipes.length / recipesPage)} </span></div>
                 }
 
-            {
-            props.showedRecipes.length === 0 ?
-            <h5 className={style.pub}>Matías Ramira</h5>
-            : <h5 className={style.pub2}>Matías Ramira</h5>
-            }    
+                {
+                    props.showedRecipes.length === 0 ?
+                        <h5 className={style.pub}>Matías Ramira</h5>
+                        : <h5 className={style.pub2}>Matías Ramira</h5>
+                }
 
-</div>
-
-
+            </div>
         </div>
     )
 }

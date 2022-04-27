@@ -1,13 +1,12 @@
 import React from "react";
 import style from "./Styles/Paginated.module.css"
 
-export default function Paginated({recipesPage, showedRecipes, paged}) {
+export default function Paginated({ recipesPage, showedRecipes, paged }) {
 
     const pages = [];
 
-    // Ceil = techo
-    for (let i = 1; i <= Math.ceil(showedRecipes/recipesPage); i++) {
-        pages.push(i)  
+    for (let i = 1; i <= Math.ceil(showedRecipes / recipesPage); i++) {
+        pages.push(i)
     };
 
     return (

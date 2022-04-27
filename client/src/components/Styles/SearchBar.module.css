@@ -31,7 +31,6 @@
     text-align: center;
     color: grey;
     font-size: x-large;
-    /* font-family:cursive */
 }
 
 .btn {
@@ -41,7 +40,6 @@
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
     color: black;
-    /* font-family:cursive; */
     font-weight: bold;
 }
 
@@ -56,11 +54,6 @@
     width: 50px;
     margin-right: 10px;
 }
-
-/* .txt {
-    font-family:serif;
-    font-family:cursive
-} */
 
 @media screen and (max-width: 1400px) {
     .title {
@@ -77,15 +70,17 @@
         font-size: 30px;
         width: 120px;
     }
+
     .img {
         height: 50px;
         width: 50px;
         margin-right: 5px;
     }
+
     .ib {
         margin-left: 70px;
     }
-    
+
     .input {
         width: 900px;
         height: 50px;
@@ -96,12 +91,11 @@
         outline: none;
         margin-top: 5px;
     }
-    
+
     .input::placeholder {
         text-align: center;
         color: grey;
-        font-size:25px;
-        /* font-family:cursive */
+        font-size: 25px;
     }
 
     .btn {
@@ -111,10 +105,9 @@
         border-radius: 10px;
         background-color: rgb(255, 255, 255);
         color: black;
-        /* font-family:cursive; */
         font-weight: bold;
     }
-    
+
     .btn:hover {
         background-color: rgb(80, 80, 80);
         color: white;
@@ -137,15 +130,17 @@
         font-size: 25px;
         width: 90px;
     }
+
     .img {
         height: 48px;
         width: 48px;
         margin-right: 5px;
     }
+
     .ib {
         margin-left: 20px;
     }
-    
+
     .input {
         width: 470px;
         height: 40px;
@@ -156,12 +151,11 @@
         outline: none;
         margin-top: 5px;
     }
-    
+
     .input::placeholder {
         text-align: center;
         color: grey;
-        font-size:20px;
-        /* font-family:cursive */
+        font-size: 20px;
     }
 
     .btn {
@@ -171,10 +165,9 @@
         border-radius: 10px;
         background-color: rgb(255, 255, 255);
         color: black;
-        /* font-family:cursive; */
         font-weight: bold;
     }
-    
+
     .btn:hover {
         background-color: rgb(80, 80, 80);
         color: white;
@@ -197,15 +190,17 @@
         font-size: 20px;
         width: 90px;
     }
+
     .img {
         height: 45px;
         width: 45px;
         margin-right: 0px;
     }
+
     .ib {
         margin-left: 5px;
     }
-    
+
     .input {
         width: 300px;
         height: 30px;
@@ -215,12 +210,11 @@
         text-indent: 5px;
         outline: none;
     }
-    
+
     .input::placeholder {
         text-align: center;
         color: grey;
-        font-size:18px;
-        /* font-family:cursive */
+        font-size: 18px;
     }
 
     .btn {
@@ -230,10 +224,9 @@
         border-radius: 10px;
         background-color: rgb(255, 255, 255);
         color: black;
-        /* font-family:cursive; */
         font-weight: bold;
     }
-    
+
     .btn:hover {
         background-color: rgb(80, 80, 80);
         color: white;
@@ -256,16 +249,18 @@
         font-size: 15px;
         width: 60px;
     }
+
     .img {
         padding-top: 5px;
         height: 35px;
         width: 35px;
         margin-right: 0px;
     }
+
     .ib {
         margin-left: 30px;
     }
-    
+
     .input {
         width: 200px;
         height: 25px;
@@ -275,12 +270,11 @@
         text-indent: 5px;
         outline: none;
     }
-    
+
     .input::placeholder {
         text-align: center;
         color: grey;
-        font-size:12px;
-        /* font-family:cursive */
+        font-size: 12px;
     }
 
     .btn {
@@ -290,11 +284,10 @@
         border-radius: 10px;
         background-color: rgb(255, 255, 255);
         color: black;
-        /* font-family:cursive; */
         font-size: 8px;
         font-weight: bold;
     }
-    
+
     .btn:hover {
         background-color: rgb(80, 80, 80);
         color: white;
@@ -317,15 +310,17 @@
         font-size: 15px;
         width: 60px;
     }
+
     .img {
         height: 30px;
         width: 30px;
         margin-right: 0px;
     }
+
     .ib {
         margin-left: 10px;
     }
-    
+
     .input {
         width: 200px;
         height: 25px;
@@ -335,12 +330,11 @@
         text-indent: 5px;
         outline: none;
     }
-    
+
     .input::placeholder {
         text-align: center;
         color: grey;
-        font-size:12px;
-        /* font-family:cursive */
+        font-size: 12px;
     }
 
     .btn {
@@ -350,11 +344,10 @@
         border-radius: 10px;
         background-color: rgb(255, 255, 255);
         color: black;
-        /* font-family:cursive; */
         font-size: 8px;
         font-weight: bold;
     }
-    
+
     .btn:hover {
         background-color: rgb(80, 80, 80);
         color: white;

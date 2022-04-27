@@ -72,7 +72,7 @@ body {
     .imag {
         height: 120px;
         width: 120px;
-        
+
     }
 
     .imag:hover {
@@ -81,6 +81,7 @@ body {
         transition: all 0.3s ease-out;
     }
 }
+
 @media screen and (max-height: 800px) {
     .text {
         position: relative;
@@ -110,7 +111,7 @@ body {
     .imag {
         height: 100px;
         width: 100px;
-        
+
     }
 
     .imag:hover {
