@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Details from './components/Details';
 import CreateRecipe from './components/CreateRecipe';
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { Redirect } from "react-router-dom";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
                     <Route path={'/home'} exact component={Home}></Route>
                     <Route path={"/home/:id"} component={Details}></Route>
                     <Route path={"/recipe"} component={CreateRecipe}></Route>
+                    <Redirect to="/"></Redirect>
                   </Switch>
                 </div>
               </CSSTransition>
