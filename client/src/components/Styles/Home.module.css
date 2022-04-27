@@ -20,7 +20,6 @@ hr {
 
 .actual {
     color: white;
-    /* font-family:cursive; */
 }
 
 .btn {
@@ -29,7 +28,6 @@ hr {
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
     color: black;
-    /* font-family:cursive; */
     font-weight: bold;
 }
 
@@ -48,7 +46,6 @@ hr {
     font-size: 16px;
     outline: none;
     border-radius: 5px;
-    /* font-family:cursive; */
 }
 
 .box select:hover {
@@ -84,7 +81,6 @@ hr {
     color: white;
     margin-left: 50px;
     margin-right: 50px;
-    /* font-family:cursive; */
 }
 
 .pub {
@@ -110,7 +106,6 @@ hr {
 .load {
     color: white;
     padding: 100px;
-    /* font-family:cursive; */
 }
 
 
@@ -121,7 +116,6 @@ hr {
         border-radius: 10px;
         background-color: rgb(255, 255, 255);
         color: black;
-        /* font-family:cursive; */
         font-weight: bold;
         font-size: 11px;
     }
@@ -165,7 +159,6 @@ hr {
         border-radius: 10px;
         background-color: rgb(255, 255, 255);
         color: black;
-        /* font-family:cursive; */
         font-weight: bold;
         font-size: 9px;
     }
@@ -195,7 +188,6 @@ hr {
 
     .actual {
         font-size: 12px;
-        /* font-family:cursive; */
     }
 
 }
@@ -207,7 +199,6 @@ hr {
         border-radius: 8px;
         background-color: rgb(255, 255, 255);
         color: black;
-        /* font-family:cursive; */
         font-weight: bold;
         font-size: 7px;
     }
@@ -244,14 +235,13 @@ hr {
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 420px) {
     .btn {
         height: 15px;
         width: 40px;
         border-radius: 8px;
         background-color: rgb(255, 255, 255);
         color: black;
-        /* font-family:cursive; */
         font-weight: bold;
         font-size: 6px;
     }
@@ -285,5 +275,24 @@ hr {
         justify-content: space-evenly;
         flex-wrap: wrap;
         color: white;
+    }
+
+    .actual {
+        color: white;
+        font-size: 10px;
+    }
+
+    .star {
+        width: 15px;
+        background-color: none;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+    
+    .starRef {
+        color: white;
+        font-size: 10px;
+        margin-left: 50px;
+        margin-right: 50px;
     }
 }
