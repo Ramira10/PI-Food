@@ -71,6 +71,10 @@
 }
 
 @media screen and (max-width: 420px) {
+    .general {
+        margin-right: 20px;
+    }
+
     .btn {
         color: white;
         border: none;
