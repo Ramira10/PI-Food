@@ -43,7 +43,7 @@ function Home(props) {
         props.getRecipes();
         setPage(1);
         setOrder('')
-        // window.location.reload();  // Si quiero recargar la página y limpiar todos los inputs, esta es una opción.
+        // window.location.reload();  // Si quiero recargar la página y limpiar todos los select, esta es una opción.
     }
 
     let handleFilterByTypeDiet = (e) => {
