@@ -42,6 +42,8 @@ function Home(props) {
         e.preventDefault();
         props.getRecipes();
         setPage(1);
+        setOrder('')
+        // window.location.reload();  // Si quiero recargar la página y limpiar todos los inputs, esta es una opción.
     }
 
     let handleFilterByTypeDiet = (e) => {
@@ -54,14 +56,14 @@ function Home(props) {
         e.preventDefault();
         props.orderByAlphabet(e.target.value);
         setPage(1);
-        setOrder(`Order ${e.target.value}`);
+        setOrder(e.target.value);
     }
 
     let handleOrderByScore = (e) => {
         e.preventDefault();
         props.orderByScore(e.target.value);
         setPage(1);
-        setOrder(`Order ${e.target.value}`);
+        setOrder(e.target.value);
     }
 
     return (
@@ -165,10 +167,6 @@ function Home(props) {
                 </div>
             }
 
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
 
             <hr></hr>
 
