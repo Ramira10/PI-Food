@@ -82,7 +82,7 @@ const get_AllRecipes = async () => {
     const getApi = await get_Api();
     const getDataBase = await get_DataBase();
     const all = getApi.concat(getDataBase);
-
+    // const all = [...getApi, ...getDataBase]
     return all;
 }
 
