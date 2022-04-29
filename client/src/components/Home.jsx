@@ -14,7 +14,6 @@ import {
 } from "../redux/actions"
 import img1 from "./Styles/Star.png"
 import img2 from "./Styles/Star2.png"
-
 let prevId = 1;
 
 function Home(props) {

@@ -235,7 +235,7 @@ function CreateRecipe(props) {
                         return (
                             <div key={d} className={style.list}>
                                 <label> {d[0].toUpperCase() + d.slice(1)}</label>
-                                <input type="checkbox" name={d} value={d} selected={input.diets.includes(d)} onChange={e => handleCheck(e)} />
+                                <input type="checkbox" name={d} value={d} onChange={e => handleCheck(e)} />
                             </div>
                         )
                     })}

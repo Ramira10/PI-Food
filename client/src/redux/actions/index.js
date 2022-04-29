@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export function getRecipes() {
-    return async(dispatch) => {
+    return async function(dispatch) {
         try{
             const response = await axios.get(`/recipes`);
             return dispatch({
