@@ -1,5 +1,5 @@
 import React from "react";
-import { getRecipeDetails } from "../redux/actions";
+import { clearDetail, getRecipeDetails } from "../redux/actions";
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import style from "./Styles/Details.module.css"
@@ -9,6 +9,10 @@ class Details extends React.Component {
 
     componentDidMount() {
         this.props.getRecipeDetails(this.props.match.params.id);
+    }
+
+    componentWillUnmount() {
+        this.props.clearDetail()
     }
 
     render() {
@@ -122,7 +126,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        getRecipeDetails: (id) => dispatch(getRecipeDetails(id))
+        getRecipeDetails: (id) => dispatch(getRecipeDetails(id)),
+        clearDetail: () => dispatch(clearDetail())
     }
 }
 

@@ -82,7 +82,11 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 showedRecipes: sortedByScore,
             };
-
+        case "CLEAR_DETAIL":
+            return {
+                ...state,
+                recipeDetails: []
+            }
         default:
             return state;
     }

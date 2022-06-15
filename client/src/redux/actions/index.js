@@ -93,3 +93,9 @@ export function orderByScore(payload) {
         payload
     }
 }
+
+export function clearDetail() {
+    return {
+        type: "CLEAR_DETAIL"
+    }
+}
